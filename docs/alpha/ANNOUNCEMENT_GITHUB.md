@@ -1,6 +1,7 @@
 # Aurion Demo Public Alpha
 
-> Reusable GitHub release / repository announcement text for Aurion's **controlled Demo Public Alpha**.
+> Reusable GitHub repository announcement text for Aurion's **Demo Public Alpha**.
+> Repository: https://github.com/Aurion-Intelligence/aurion-demo-public-alpha
 > Edit freely before posting. Nothing here is published until the operator explicitly approves it.
 
 ## What Aurion Is
@@ -15,34 +16,24 @@ The category is **AI-governed mission control** — a local-first, permission-go
 
 ## What This Demo Includes
 
-This Demo Public Alpha shows one governed mission spine, end to end:
+This **Demo Public Alpha** lets you run a small, **real** governed mission on Linux, macOS, or Windows —
+offline, with the Python standard library only (no model, no network, no cloud). You watch which actions
+are **allowed** and which are **blocked**, then inspect fresh **AuditLedger** events, **BlackBox**
+decisions, and a **Mission Receipt** the run produces.
+
+The bounded mission: *"Review the included project note, identify three action items, save the result
+inside the demo workspace, and do not use the internet."* During the run:
 
 ```text
-Goal
-→ Mission Plan
-→ Microsteps
-→ Permission Check
-→ Governed Execution / Dry Run
-→ AuditLedger
-→ BlackBox Trace
-→ Mission Receipt
-→ Command Center
+Goal → deterministic plan → microsteps → permission evaluation
+     → allowed local read (only inside the bundled workspace)
+     → allowed bounded write (only inside the generated-artifacts directory)
+     → blocked external-network step (no network permission granted)
+     → fresh AuditLedger events → fresh BlackBox decisions → fresh Mission Receipt
 ```
 
-The demonstrated path, in one line:
-
-`Goal → Mission Plan → Permission Check → AuditLedger → Mission Receipt → Command Center`
-
-Concretely, the bounded public spine demo (`PUBLIC-SPINE-DEMO-LOOP-001`):
-
-- takes a bounded local goal ("check Aurion's current alpha readiness and produce a governed mission
-  receipt with evidence, warnings, and next steps"),
-- builds a Mission Plan with microsteps, classified as proposed-only / dry-run,
-- runs PermissionGraph checks (local read allowed; external network and writes denied),
-- records AuditLedger references and a BlackBox decision-trace reference,
-- attaches advisory, read-only cost-governance evidence,
-- produces a canonical **Mission Receipt** you can inspect in the real Command Center UI,
-- shows missing data honestly as **unavailable** — never fake-green.
+It is a **bounded** runtime: a small public implementation of the governed spine. It is **not** the full
+Aurion runtime — there is no Command Center backend, live autonomy, cloud routing, or spending here.
 
 ## Why Governance Matters
 
@@ -84,12 +75,13 @@ Follow the narrated [Demo Script](DEMO_SCRIPT.md) for a guided 3–5 minute walk
 
 See [Known Limitations (Public)](KNOWN_LIMITATIONS_PUBLIC.md) for the full list. The headlines:
 
-- Full public alpha is **blocked by the broad frontend test suite**, which still has failures.
-- Live autonomy is **not presented as complete**; unavailable controls remain visibly unavailable.
-- Governance is strong on the demonstrated spine but **not yet proven universal** across all side-effect
-  paths.
-- Setup is rough and environment-sensitive — **no polished cross-platform installer**.
-- No silent cloud escalation, no live spending, no complete provider integration claim.
+- This is the **bounded demo runtime**, not the full Aurion runtime (no Command Center backend, no live
+  mission execution).
+- **Full public alpha is not ready.** This package proves one governed spine, not the whole product.
+- Live autonomy is **not** demonstrated; the runtime is deterministic, offline, and dry-run only.
+- Governance here is a small, deliberately bounded public PermissionGraph contract — **not** the full
+  private implementation, and not proof that every possible side-effect path is governed.
+- No cloud routing, no live spending, no model required — and none demonstrated.
 
 ## Project Status
 

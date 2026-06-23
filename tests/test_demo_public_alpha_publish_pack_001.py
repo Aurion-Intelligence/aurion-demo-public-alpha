@@ -118,7 +118,13 @@ def test_production_and_enterprise_disclaimers_exist():
 def test_docs_include_public_spine_sequence():
     assert SPINE in _text(PUBLISH_PACK)
     assert SPINE in _text(DEMO_SCRIPT)
-    assert SPINE in _text(ANNOUNCEMENT_GITHUB)
+    # The GitHub announcement leads with the runnable bounded-runtime spine (permission evaluation,
+    # allowed read/write, blocked network, fresh AuditLedger/BlackBox/Mission Receipt) rather than the
+    # historical fixture spine line. Verify the governed-spine essentials are present.
+    low = _text(ANNOUNCEMENT_GITHUB).lower()
+    for token in ["deterministic plan", "permission evaluation", "blocked external-network",
+                  "auditledger", "blackbox", "mission receipt"]:
+        assert token in low, f"GitHub announcement must describe the governed spine token: {token!r}"
 
 
 # --- Screenshots -------------------------------------------------------------
@@ -148,14 +154,21 @@ def test_screenshot_gallery_explains_proof_and_non_proof():
 def test_github_announcement_contains_known_limitations():
     low = _text(ANNOUNCEMENT_GITHUB).lower()
     assert "limitation" in low, "GitHub announcement must surface current limitations"
-    assert "broad frontend" in low, "GitHub announcement must name the frontend blocker"
+    # Must scope honestly: not the full runtime, and full public alpha not ready. (Private full-project
+    # blocker details are intentionally NOT surfaced in the public announcement.)
+    assert "not the full aurion runtime" in low or "not the full" in low, \
+        "GitHub announcement must say this is not the full Aurion runtime"
+    assert "full public alpha is not ready" in low or "not.*full public alpha" in low or \
+        "not full public alpha" in low, "GitHub announcement must say full public alpha is not ready"
 
 
 # --- Social variants ---------------------------------------------------------
 def test_social_variants_present_and_bounded():
     text = _text(ANNOUNCEMENT_SOCIAL)
     low = text.lower()
-    for variant in ["short", "medium", "technical"]:
+    # Three final variants per the announcement-preflight lane: short social, technical social, and a
+    # longer GitHub/community announcement.
+    for variant in ["short", "technical", "longer"]:
         assert variant.lower() in low, f"social announcement missing '{variant}' variant"
     # Required vocabulary present somewhere in the social copy.
     for token in ["local-first", "permission-governed", "mission", "mission receipt", "demo public alpha"]:

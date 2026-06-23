@@ -200,13 +200,13 @@
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_GITHUB.md",
-      "sha256_16": "cff09e842097a21c",
-      "bytes": 5828
+      "sha256_16": "fa851586478ec35b",
+      "bytes": 6064
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_SOCIAL.md",
-      "sha256_16": "e7959a864707df12",
-      "bytes": 2989
+      "sha256_16": "4194aab0e2ef9420",
+      "bytes": 4663
     },
     {
       "path": "docs/alpha/DEMO_SCRIPT.md",
@@ -225,8 +225,8 @@
     },
     {
       "path": "docs/alpha/INSTALL_WALKTHROUGH.md",
-      "sha256_16": "e6ded7090dfcff06",
-      "bytes": 15670
+      "sha256_16": "92b8ec40b3074d56",
+      "bytes": 15829
     },
     {
       "path": "docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md",
@@ -305,8 +305,8 @@
     },
     {
       "path": "tests/test_demo_public_alpha_publish_pack_001.py",
-      "sha256_16": "f1b72199580e3632",
-      "bytes": 11659
+      "sha256_16": "4456491e9bef93a6",
+      "bytes": 12794
     },
     {
       "path": "tests/test_public_spine_demo_runner_001.py",

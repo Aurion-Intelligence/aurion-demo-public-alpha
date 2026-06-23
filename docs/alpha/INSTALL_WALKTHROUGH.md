@@ -87,11 +87,12 @@ After completing this walkthrough you will have:
 ## Clone Repo
 
 ```bash
-git clone <repo-url> myai
-cd myai
+git clone https://github.com/Aurion-Intelligence/aurion-demo-public-alpha.git
+cd aurion-demo-public-alpha
 ```
 
-> Replace `<repo-url>` with the actual repo URL. The repo is not yet public; ask for access.
+> This is the public Demo Public Alpha repository. After cloning, run the bounded governed mission with
+> `python3 -m aurion_demo run` (no extra setup required for the demo path).
 
 ---
 
