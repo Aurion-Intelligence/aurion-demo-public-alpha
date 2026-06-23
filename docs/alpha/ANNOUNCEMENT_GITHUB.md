@@ -92,13 +92,12 @@ See [Known Limitations (Public)](KNOWN_LIMITATIONS_PUBLIC.md) for the full list.
 ## Project Status
 
 ```text
-demo_public_alpha_ready: true   (ready_with_minor_caveats)
+demo_public_alpha_ready: true
 public_alpha_ready:      false
-overall:                 yellow
+publication_executed:    false
 ```
 
-The generated, evidence-derived truth lives in [`ALPHA_STATUS.md`](ALPHA_STATUS.md) and
-[`KNOWN_ISSUES.md`](KNOWN_ISSUES.md).
+The export-scoped status lives in [`DEMO_STATUS.md`](DEMO_STATUS.md).
 
 > **Disclaimer:** This is a controlled Demo Public Alpha of Aurion's governed mission spine. It is not a
 > production release, full public alpha, enterprise platform, or claim of complete unattended autonomy.

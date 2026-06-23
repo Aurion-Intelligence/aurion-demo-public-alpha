@@ -1,6 +1,6 @@
 /**
  * alpha-screenshots.capture.spec.ts
- * [alpha-screenshot-capture-001]
+ *
  *
  * Captures the Demo Public Alpha screenshot set by rendering the REAL Command
  * Center UI against deterministic seeded fixtures built from the genuine
@@ -113,7 +113,7 @@ async function openDemoReceiptDetail(page: Page) {
   }
 }
 
-test.describe('Alpha screenshot capture [alpha-screenshot-capture-001]', () => {
+test.describe('Alpha screenshot capture', () => {
   test('01 — command center shell (mission control cockpit)', async ({ page }) => {
     await gotoReady(page, '/mission-control');
     await page.screenshot({ path: resolve(OUT_DIR, '01-command-center-shell.png'), fullPage: true });

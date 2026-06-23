@@ -203,35 +203,29 @@ will explain exactly what was refused and why. This is governed restraint, not a
 
 ---
 
-## Alpha status generator
+## Public demo runner
 
-### `python scripts/alpha/generate_alpha_status.py` fails
-
-```bash
-# Ensure venv is active and aurion is importable
-python -c "from aurion.alpha.status import build_status; print('ok')"
-
-# Run with verbose output
-python scripts/alpha/generate_alpha_status.py
-```
-
-### Alpha status still shows `install_walkthrough: unknown` after adding this doc
-
-The generator checks for `docs/alpha/INSTALL_WALKTHROUGH.md` (this file's location).
-After creating the walkthrough, regenerate:
+### `python scripts/demo/run_public_spine_demo.py` fails
 
 ```bash
-python scripts/alpha/generate_alpha_status.py
-# install_walkthrough gate should now show: pass
+# From the repository root (standard library only — no venv or extra deps required)
+python scripts/demo/run_public_spine_demo.py            # validate / replay
+python scripts/demo/run_public_spine_demo.py --mode generate   # generate a fresh bounded receipt
 ```
+
+The runner is offline and uses only files in this repository (no network, no cloud, no private
+modules). If it reports missing evidence, confirm the `artifacts/demo/` fixtures are present. This
+package's status is described in [`DEMO_STATUS.md`](DEMO_STATUS.md) — a static, export-scoped document
+(there is no status generator in this public package).
 
 ---
 
 ## Getting more help
 
-1. Check `agents_memory/` for recent mission handoffs relevant to your issue
-2. Check `docs/architecture_snapshot_current.md` for system architecture context
-3. Check `artifacts/` for audit evidence and test reports
+1. Read [`DEMO_STATUS.md`](DEMO_STATUS.md) for what this package can and cannot do
+2. Check [`KNOWN_LIMITATIONS_PUBLIC.md`](KNOWN_LIMITATIONS_PUBLIC.md) for known limitations
+3. Check `artifacts/demo/` for the demo's audit/decision-trace evidence
+4. Open an issue (see [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md))
 4. Run the alpha demo checklist to verify environment preconditions:
    ```bash
    python scripts/demo/run_public_spine_demo.py

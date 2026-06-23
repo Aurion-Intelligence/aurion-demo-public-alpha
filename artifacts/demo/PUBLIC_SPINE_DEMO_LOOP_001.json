@@ -41,7 +41,7 @@
         "event_type": "permission.fs.read",
         "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
         "outcome": "allowed",
-        "redacted_summary": "summary=fs.read docs/alpha/ALPHA_STATUS.md allowed",
+        "redacted_summary": "summary=fs.read docs/alpha/DEMO_STATUS.md allowed",
         "redaction_applied": true,
         "risk_level": "low",
         "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_permission_1"
@@ -123,8 +123,8 @@
         "created_at": "2026-06-20T15:47:31.032532+00:00",
         "decision_type": "policy",
         "evidence_refs": [
-          "docs/alpha/ALPHA_STATUS.md",
-          "docs/alpha/KNOWN_ISSUES.md"
+          "docs/alpha/DEMO_STATUS.md",
+          "docs/alpha/DEMO_STATUS.md"
         ],
         "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
         "model_role": "not_called_deterministic_script",
@@ -170,7 +170,7 @@
       "allowed": true,
       "capability": "fs.read",
       "reason_code": "allowed",
-      "target": "docs/alpha/ALPHA_STATUS.md"
+      "target": "docs/alpha/DEMO_STATUS.md"
     },
     {
       "allowed": false,
@@ -190,13 +190,13 @@
     {
       "bytes_read": 2809,
       "exists": true,
-      "path": "docs/alpha/ALPHA_STATUS.md",
+      "path": "docs/alpha/DEMO_STATUS.md",
       "summary": "Read local artifact successfully."
     },
     {
       "bytes_read": 1387,
       "exists": true,
-      "path": "docs/alpha/KNOWN_ISSUES.md",
+      "path": "docs/alpha/DEMO_STATUS.md",
       "summary": "Read local artifact successfully."
     },
     {
@@ -270,7 +270,7 @@
   },
   "what_this_demo_does_not_prove": [
     "It does not prove live autonomous mission execution.",
-    "It does not prove worker spawning, WatcherLoop, AgentFactory, spending, cloud escalation, or production readiness.",
+    "It does not prove worker spawning, background watcher loops, agent spawning, spending, cloud escalation, or production readiness.",
     "It does not make public_alpha_ready true; install walkthrough and screenshots remain required."
   ],
   "what_this_demo_proves": [

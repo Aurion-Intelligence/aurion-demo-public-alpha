@@ -32,8 +32,7 @@ def test_root_readme_links_verified_public_spine_docs() -> None:
         "docs/alpha/SETUP_TROUBLESHOOTING.md",
         "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
         "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json",
-        "docs/alpha/ALPHA_STATUS.md",
-        "docs/alpha/KNOWN_ISSUES.md",
+        "docs/alpha/DEMO_STATUS.md",
     ]
     for link in required_links:
         assert (REPO_ROOT / link).exists(), f"README links missing repo file: {link}"

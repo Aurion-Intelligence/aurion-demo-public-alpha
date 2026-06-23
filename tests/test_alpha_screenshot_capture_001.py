@@ -1,6 +1,5 @@
 """
-Tests for the Alpha Screenshot Capture demo-public-alpha proof pack —
-[alpha-screenshot-capture-001]
+Tests for the Alpha Screenshot Capture demo-public-alpha proof pack
 
 Validates (offline, deterministic — no backend, no model, no network):
   1.  screenshot directory exists
@@ -26,7 +25,7 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SHOTS_DIR = REPO_ROOT / "docs" / "alpha" / "screenshots"
 MANIFEST = SHOTS_DIR / "manifest.json"
-README_ALPHA = REPO_ROOT / "docs" / "alpha" / "README_ALPHA.md"
+GALLERY = REPO_ROOT / "docs" / "alpha" / "SCREENSHOT_GALLERY.md"
 
 REQUIRED_SCREENSHOTS = [
     "01-command-center-shell.png",
@@ -98,26 +97,25 @@ def test_manifest_marks_demo_public_alpha_not_production(manifest: dict):
 
 # 7
 def test_docs_reference_screenshots():
-    assert README_ALPHA.is_file(), "docs/alpha/README_ALPHA.md must exist."
-    text = README_ALPHA.read_text(encoding="utf-8")
-    assert "screenshots/" in text, "README_ALPHA.md must reference the screenshots directory."
+    assert GALLERY.is_file(), "docs/alpha/SCREENSHOT_GALLERY.md must exist."
+    text = GALLERY.read_text(encoding="utf-8")
+    assert "screenshots/" in text, "SCREENSHOT_GALLERY.md must reference the screenshots directory."
 
 
-# 8 + #14: generated alpha status recognizes the screenshot gate AND this lane
-# does not flip FULL public alpha green on its own.
-def test_alpha_status_recognizes_screenshot_gate_without_full_public_green():
-    from aurion.alpha.status import build_status
+# 8 + #14: the export-scoped status keeps the honest split — the demo package is ready
+# but FULL public alpha is not. (Export carries only the flags, not the full-project gate engine.)
+def test_export_status_keeps_honest_split():
+    import json
 
-    status = build_status()
-    assert status["gates"]["screenshots"]["status"] == "pass", \
-        "Screenshots gate must pass once the manifest + PNGs are present."
-    # The demo package is ready...
-    assert status.get("demo_public_alpha_ready") is True, \
-        "Demo public alpha package should be ready when its gates pass."
-    # ...but FULL public alpha must NOT be claimed while broad frontend tests fail.
-    if status["gates"].get("broad_frontend_tests", {}).get("status") != "pass":
-        assert status["public_alpha_ready"] is False, \
-            "Screenshots alone must not flip FULL public alpha green."
+    status_json = REPO_ROOT / "artifacts" / "alpha" / "alpha_status.json"
+    assert status_json.is_file(), "export must ship artifacts/alpha/alpha_status.json"
+    data = json.loads(status_json.read_text(encoding="utf-8"))
+    assert data.get("demo_public_alpha_ready") is True, \
+        "demo_public_alpha_ready must be true"
+    assert data.get("public_alpha_ready") is False, \
+        "public_alpha_ready must remain false (FULL public alpha is not ready)"
+    # Screenshot fixtures are actually present.
+    assert len(list(SHOTS_DIR.glob("*.png"))) == 5, "five screenshot fixtures must be present"
 
 
 # 9

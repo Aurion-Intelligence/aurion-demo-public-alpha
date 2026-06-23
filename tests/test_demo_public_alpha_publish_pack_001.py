@@ -1,5 +1,5 @@
 """
-Honesty tests for the Demo Public Alpha publish pack — [demo-public-alpha-publish-pack-001]
+Honesty tests for the Demo Public Alpha publish pack
 
 Verifies the public-facing publish materials exist and preserve honest claim boundaries:
 Demo Public Alpha, not production-ready, not full public alpha, not enterprise-ready, governed mission

@@ -75,4 +75,4 @@ autonomy.
 ---
 
 *Screenshots are shipped as deterministic, fixture-backed captures; the regeneration toolchain (Playwright + Command Center build) lives in the private Aurion repository and is not part of this public export. The screenshot gate is
-manifest-based — see [`ALPHA_STATUS.md`](ALPHA_STATUS.md).*
+manifest-based — see [`manifest.json`](screenshots/manifest.json).*

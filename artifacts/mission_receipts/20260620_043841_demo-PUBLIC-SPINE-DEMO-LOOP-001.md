@@ -61,7 +61,7 @@ Run a deterministic local repo health check for Aurion's public spine: read alph
 
 ## Permission checks
 
-fs.read docs/alpha/ALPHA_STATUS.md -> allowed (allowed); net.request https://example.com -> denied (net_denied_no_allowlist); fs.write TODO.md -> denied (fs_write_denied)
+fs.read docs/alpha/DEMO_STATUS.md -> allowed (allowed); net.request https://example.com -> denied (net_denied_no_allowlist); fs.write TODO.md -> denied (fs_write_denied)
 
 ## Mission Harness Plan
 
@@ -125,8 +125,8 @@ local_demo_completed; permission_boundary_checked; no live autonomy, no cloud, n
 
 ## Actions executed
 
-- Read docs/alpha/ALPHA_STATUS.md (3065 bytes)
-- Read docs/alpha/KNOWN_ISSUES.md (1780 bytes)
+- Read docs/alpha/DEMO_STATUS.md (3065 bytes)
+- Read docs/alpha/DEMO_STATUS.md (1780 bytes)
 - Read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md (12000 bytes)
 - Built advisory harness and loop plans.
 - Recorded demo-scoped AuditLedger events.

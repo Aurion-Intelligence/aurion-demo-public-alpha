@@ -1,24 +1,28 @@
 {
   "export_manifest_id": "PUBLIC-DEMO-REPO-EXPORT-001",
-  "generated_at": "2026-06-22",
+  "generated_at": "2026-06-23",
   "license": "AGPL-3.0-only",
   "license_file": "LICENSE",
+  "status_page": "docs/alpha/DEMO_STATUS.md (export-scoped; full-project readiness matrix not published)",
   "self_contained_demo": {
     "runner": "scripts/demo/run_public_spine_demo.py",
     "modes": [
       "validate",
       "generate"
     ],
-    "offline": true,
-    "no_private_imports": true,
-    "standalone_test": "tests/test_public_spine_demo_runner_001.py"
+    "offline": true
   },
   "source_repository": "private Aurion source repository (unchanged)",
   "source_commit": "c6e0a03cdfd560a80c4995abdd7b6ad2dda07f67",
   "export_root": "(repository root)",
   "git_history_included": false,
-  "file_count": 49,
+  "file_count": 46,
   "files": [
+    {
+      "path": ".gitignore",
+      "sha256_16": "e9971a759e6f52d5",
+      "bytes": 299
+    },
     {
       "path": "CONTRIBUTING.md",
       "sha256_16": "58f653ebd3d56f6e",
@@ -31,113 +35,103 @@
     },
     {
       "path": "README.md",
-      "sha256_16": "689e9dc3b76a4de2",
-      "bytes": 12866
+      "sha256_16": "337ca4fda4e1064e",
+      "bytes": 13107
     },
     {
       "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.json",
-      "sha256_16": "6ea1e4485e9ebcbe",
-      "bytes": 4407
+      "sha256_16": "c796a3a2731b8f21",
+      "bytes": 4469
     },
     {
       "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.md",
-      "sha256_16": "055986e06930199a",
-      "bytes": 6548
+      "sha256_16": "c5961ca57cbb7efb",
+      "bytes": 6405
     },
     {
       "path": "artifacts/alpha/alpha_status.json",
-      "sha256_16": "ac6f0e973e9e87c5",
-      "bytes": 8173
+      "sha256_16": "1d3a4617e2915183",
+      "bytes": 452
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.audit.jsonl",
-      "sha256_16": "a007bfd77d29ee27",
-      "bytes": 21720
+      "sha256_16": "58b1d8d73fe07e94",
+      "bytes": 21705
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_043804_permission_boundary.json",
-      "sha256_16": "a0b4230d8386d9cf",
-      "bytes": 1581
+      "sha256_16": "9e5678c3292b8ca5",
+      "bytes": 1579
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_043841_permission_boundary.json",
-      "sha256_16": "d5cceec485793b92",
-      "bytes": 1581
+      "sha256_16": "d77604f9b5e5190b",
+      "bytes": 1579
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_151504_permission_boundary.json",
-      "sha256_16": "4c3a600592633fda",
-      "bytes": 1581
+      "sha256_16": "378ed5360c7b5d29",
+      "bytes": 1579
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_151727_permission_boundary.json",
-      "sha256_16": "2b434fd7fbd06a2c",
-      "bytes": 1581
+      "sha256_16": "dddff802eeaf6ee6",
+      "bytes": 1579
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/indexes/router_traces.jsonl",
-      "sha256_16": "ccd880911a5a2349",
-      "bytes": 4842
+      "sha256_16": "ab4cb6bbbacd2857",
+      "bytes": 4832
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json",
-      "sha256_16": "c816aa7b3427268a",
-      "bytes": 11513
+      "sha256_16": "2db9e6ed0dfcb39e",
+      "bytes": 11522
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
-      "sha256_16": "438333278548c832",
-      "bytes": 3904
+      "sha256_16": "2cd0029322fbafd6",
+      "bytes": 3918
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.scenario.json",
-      "sha256_16": "1f2c377d613c4ed1",
-      "bytes": 2703
+      "sha256_16": "61c1753800f2a303",
+      "bytes": 2723
     },
     {
       "path": "artifacts/mission_receipts/20260620_043804_demo-PUBLIC-SPINE-DEMO-LOOP-001.json",
-      "sha256_16": "9c1cc890e5876c51",
-      "bytes": 16968
+      "sha256_16": "efef7a833a872ff5",
+      "bytes": 16958
     },
     {
       "path": "artifacts/mission_receipts/20260620_043804_demo-PUBLIC-SPINE-DEMO-LOOP-001.md",
-      "sha256_16": "ef8c1a88d74b458f",
-      "bytes": 7685
+      "sha256_16": "b2ac5bc538ef3931",
+      "bytes": 7682
     },
     {
       "path": "artifacts/mission_receipts/20260620_043841_demo-PUBLIC-SPINE-DEMO-LOOP-001.json",
-      "sha256_16": "57f8bc3f49453e23",
-      "bytes": 16968
+      "sha256_16": "790a6ff5155551f0",
+      "bytes": 16958
     },
     {
       "path": "artifacts/mission_receipts/20260620_043841_demo-PUBLIC-SPINE-DEMO-LOOP-001.md",
-      "sha256_16": "ba600d83756b00d0",
-      "bytes": 7685
+      "sha256_16": "1043c8e7585d8aea",
+      "bytes": 7682
     },
     {
       "path": "aurion-command-center/tests/alpha/alpha-screenshots.capture.spec.ts",
-      "sha256_16": "516cbfc675f159a3",
-      "bytes": 7644
+      "sha256_16": "a2eea09c7547fb57",
+      "bytes": 7582
     },
     {
       "path": "aurion-command-center/tests/fixtures/alpha-screenshots/mission-receipt.detail.json",
-      "sha256_16": "c8817cf7619a06cb",
-      "bytes": 24443
+      "sha256_16": "8af452eeb3899ebd",
+      "bytes": 24434
     },
     {
       "path": "aurion-command-center/tests/fixtures/alpha-screenshots/mission-receipts.list.json",
       "sha256_16": "ee426caab3e3367a",
       "bytes": 1698
-    },
-    {
-      "path": "aurion/alpha/status.py",
-      "sha256_16": "a9c95bf571c6be4e",
-      "bytes": 26768
-    },
-    {
-      "path": "docs/alpha/ALPHA_STATUS.md",
-      "sha256_16": "90a41ae15ac57097",
-      "bytes": 6011
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_DRAFT.md",
@@ -146,8 +140,8 @@
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_GITHUB.md",
-      "sha256_16": "7ccba5fefae51e66",
-      "bytes": 5667
+      "sha256_16": "f78d1c27d80ab5cd",
+      "bytes": 5581
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_SOCIAL.md",
@@ -160,44 +154,39 @@
       "bytes": 4848
     },
     {
+      "path": "docs/alpha/DEMO_STATUS.md",
+      "sha256_16": "970a2ed168e511d1",
+      "bytes": 3509
+    },
+    {
       "path": "docs/alpha/FAQ_DEMO_PUBLIC_ALPHA.md",
-      "sha256_16": "107d183ab8ef388d",
-      "bytes": 4449
+      "sha256_16": "1f141e906cf34cce",
+      "bytes": 4390
     },
     {
       "path": "docs/alpha/INSTALL_WALKTHROUGH.md",
-      "sha256_16": "298f10f1307f9144",
-      "bytes": 15257
-    },
-    {
-      "path": "docs/alpha/KNOWN_ISSUES.md",
-      "sha256_16": "0128c99fc5736cfd",
-      "bytes": 3959
+      "sha256_16": "98f3abfc127cf517",
+      "bytes": 15087
     },
     {
       "path": "docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md",
-      "sha256_16": "6d3ec9ec6e73d9fe",
-      "bytes": 3236
+      "sha256_16": "ce0a32e4cbf23a3e",
+      "bytes": 3148
     },
     {
       "path": "docs/alpha/PUBLISH_PACK.md",
-      "sha256_16": "05bb1d987c123333",
-      "bytes": 8271
-    },
-    {
-      "path": "docs/alpha/README_ALPHA.md",
-      "sha256_16": "708cced4ed763ffd",
-      "bytes": 15138
+      "sha256_16": "1aa050a27c4ba89c",
+      "bytes": 8202
     },
     {
       "path": "docs/alpha/SCREENSHOT_GALLERY.md",
-      "sha256_16": "6ae88ea741e39a58",
-      "bytes": 4049
+      "sha256_16": "aa9e2e169eae5370",
+      "bytes": 4057
     },
     {
       "path": "docs/alpha/SETUP_TROUBLESHOOTING.md",
-      "sha256_16": "085a5a9b1d868310",
-      "bytes": 6054
+      "sha256_16": "eaa8d32528912530",
+      "bytes": 6254
     },
     {
       "path": "docs/alpha/screenshots/01-command-center-shell.png",
@@ -230,29 +219,24 @@
       "bytes": 2609
     },
     {
-      "path": "scripts/alpha/generate_alpha_status.py",
-      "sha256_16": "c7fdf2875c86e407",
-      "bytes": 5278
-    },
-    {
       "path": "scripts/demo/run_public_spine_demo.py",
       "sha256_16": "556583284bf87f28",
       "bytes": 9669
     },
     {
       "path": "tests/test_alpha_install_walkthrough_001.py",
-      "sha256_16": "fe4082d607ea92fb",
-      "bytes": 13379
+      "sha256_16": "b32ea6cf9ac642ed",
+      "bytes": 12804
     },
     {
       "path": "tests/test_alpha_screenshot_capture_001.py",
-      "sha256_16": "eef817dd251135ad",
-      "bytes": 5501
+      "sha256_16": "256473ee75ef10c7",
+      "bytes": 5439
     },
     {
       "path": "tests/test_demo_public_alpha_publish_pack_001.py",
-      "sha256_16": "de3151f067a3a47a",
-      "bytes": 11313
+      "sha256_16": "8ff0e25c4e53f4da",
+      "bytes": 11272
     },
     {
       "path": "tests/test_public_spine_demo_runner_001.py",
@@ -261,8 +245,8 @@
     },
     {
       "path": "tests/test_root_readme_demo_public_positioning_001.py",
-      "sha256_16": "24ba0284bd0b7419",
-      "bytes": 3677
+      "sha256_16": "250b0850f231d8e4",
+      "bytes": 3638
     }
   ]
 }

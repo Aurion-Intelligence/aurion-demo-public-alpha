@@ -17,8 +17,8 @@
   ],
   "allowed_capabilities": [
     "read local repo metadata",
-    "read docs/alpha/ALPHA_STATUS.md",
-    "read docs/alpha/KNOWN_ISSUES.md",
+    "read docs/alpha/DEMO_STATUS.md",
+    "read docs/alpha/DEMO_STATUS.md",
     "read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md",
     "write demo artifacts under artifacts/demo",
     "write canonical Mission Receipt artifacts under artifacts/mission_receipts",
@@ -34,8 +34,8 @@
     "external posting",
     "real file mutation outside artifacts/demo or Mission Receipt artifacts",
     "approval mutation",
-    "restoring ConductorBrain runner",
-    "rewiring AutonomyWorker",
+    "starting an autonomous execution runner",
+    "starting autonomous background workers",
     "bypassing unavailable autonomy controls"
   ],
   "expected_artifacts": [

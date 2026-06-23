@@ -6,7 +6,7 @@
   "release_category": "controlled_public_demo",
   "demo_public_alpha_ready": true,
   "public_alpha_ready": false,
-  "overall_status": "yellow",
+  "overall_status": "demo_public_alpha_ready (bounded package); full public alpha not ready",
   "tracked_readiness_verdict": "ready_with_minor_caveats",
   "publication_executed": false,
   "documents": [
@@ -20,8 +20,7 @@
     "docs/alpha/ANNOUNCEMENT_DRAFT.md",
     "docs/alpha/INSTALL_WALKTHROUGH.md",
     "docs/alpha/SETUP_TROUBLESHOOTING.md",
-    "docs/alpha/ALPHA_STATUS.md",
-    "docs/alpha/KNOWN_ISSUES.md"
+    "docs/alpha/DEMO_STATUS.md"
   ],
   "screenshots": [
     "docs/alpha/screenshots/manifest.json",
@@ -55,8 +54,8 @@
   ],
   "known_caveats": [
     "broad frontend tests block full public alpha",
-    "publication materials are drafts for operator review — nothing published, no release created",
-    "software license: open source under AGPL-3.0-only (strong copyleft; modified network use may trigger AGPL §13 source-offer; no paid commercial license exists yet; plugin/limb boundary under review)"
+    "publication materials are drafts for operator review \u2014 nothing published, no release created",
+    "software license: open source under AGPL-3.0-only (strong copyleft; modified network use may trigger AGPL \u00a713 source-offer; no paid commercial license exists yet; plugin/limb boundary under review)"
   ],
   "claim_boundaries": {
     "allowed": [
@@ -83,7 +82,7 @@
   "validation": [
     "pytest tests/test_demo_public_alpha_publish_pack_001.py -> all pass",
     "pytest focused honesty suite (public spine demo + install + screenshot + readme positioning) -> pass",
-    "python scripts/alpha/generate_alpha_status.py -> demo_public_alpha_ready=true, public_alpha_ready=false, yellow"
+    "python scripts/demo/run_public_spine_demo.py -> validates the bounded demo receipt; demo_public_alpha_ready=true, public_alpha_ready=false"
   ],
   "git_tracking_note": "New brief-named publish docs + updated test are untracked/modified; README.md is tracked. Explicit-pathspec staging command is in the markdown artifact and handoff. NOT executed (no add -A, no commit, no push, no release).",
   "recommendation": "publication_materials_ready_for_operator_review",

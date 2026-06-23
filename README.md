@@ -55,9 +55,9 @@ Goal -> Mission Plan -> Permission Check -> AuditLedger -> Mission Receipt -> Co
 ```
 
 The purpose is to show Aurion's governed mission spine, not to claim broad
-autonomous capability. The generated source of truth is
-[`docs/alpha/ALPHA_STATUS.md`](docs/alpha/ALPHA_STATUS.md), and it must remain
-the authority over public-alpha readiness.
+autonomous capability. This package's status — what it can and cannot do — is in
+[`docs/alpha/DEMO_STATUS.md`](docs/alpha/DEMO_STATUS.md). The full-project
+readiness matrix is private and not published here.
 
 ## Public Spine Demo
 
@@ -113,15 +113,16 @@ ready for public trust or broad use:
 - unattended live autonomy
 - universal side-effect governance
 - complete live Foreman/autonomy route path
-- AgentFactory availability in the public demo
-- WatcherLoop beyond the HeartbeatScheduler seed
+- autonomous agent-spawning (not in the public demo)
+- background watcher/scheduler loops beyond a minimal seed
 - real spending adapters
 - enterprise platform claims
 - general cloud escalation safety
 - claims that every tool or action is governed
 
-Current blockers and caveats are tracked in
-[`docs/alpha/KNOWN_ISSUES.md`](docs/alpha/KNOWN_ISSUES.md).
+What this package can and cannot do is described in
+[`docs/alpha/DEMO_STATUS.md`](docs/alpha/DEMO_STATUS.md), and public limitations in
+[`docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md`](docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md).
 
 ## Screenshots
 
@@ -172,8 +173,8 @@ Then inspect:
 - the generated demo data:
   [`artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json)
 - Command Center's read-only Mission Receipts view at `/mission-receipts`
-- generated readiness state:
-  [`docs/alpha/ALPHA_STATUS.md`](docs/alpha/ALPHA_STATUS.md)
+- this package's status:
+  [`docs/alpha/DEMO_STATUS.md`](docs/alpha/DEMO_STATUS.md)
 
 ## Architecture
 
@@ -261,8 +262,9 @@ The best contributions are narrow and evidence-backed:
 - local-first model routing hardening
 - governed browser/tool-action design that stays human-in-the-loop
 
-Before making changes, read `TODO.md` and the relevant `agents_memory` handoff
-for the lane you are working on.
+Before making changes, read [`CONTRIBUTING.md`](CONTRIBUTING.md) and
+[`docs/alpha/DEMO_STATUS.md`](docs/alpha/DEMO_STATUS.md) to understand what this bounded package does
+and does not include.
 
 ## License / Project Status
 

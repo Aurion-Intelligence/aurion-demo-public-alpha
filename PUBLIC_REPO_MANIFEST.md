@@ -11,22 +11,21 @@ This directory is a **clean public-safe export** of the approved Aurion Demo Pub
 It is **not** a git repository and has **not** been committed, pushed, or published. The private
 source repository was not modified.
 
-## What is included (49 files)
+## What is included (46 files)
 
 - `README.md` — canonical public entrypoint
 - `LICENSE` — **GNU AGPL-3.0-only** (canonical official text)
 - `CONTRIBUTING.md` — feedback welcome; external code merges paused pending contributor-rights process
 - `docs/alpha/**` — publish pack (hub), announcements (GitHub + social), demo script, screenshot
-  gallery, public known-limitations, install + troubleshooting, alpha status, known issues, FAQ,
-  deprecated announcement draft, README_ALPHA, 5 screenshots + manifest
+  gallery, public known-limitations, install + troubleshooting, FAQ, deprecated announcement draft, **DEMO_STATUS** (export-scoped status), 5 screenshots + manifest
 - `artifacts/alpha/**` — public publish-pack artifact (`.md`/`.json`) + `alpha_status.json`
 - `artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.*` — bounded demo proof (report, scenario, audit jsonl,
   BlackBox decision traces, router index)
 - `artifacts/mission_receipts/*demo-PUBLIC-SPINE-DEMO-LOOP-001*` — the two demo Mission Receipts only
 - `scripts/demo/run_public_spine_demo.py` — **self-contained, offline demo runner** (validate/replay or
   generate a bounded Mission Receipt; no private imports, no network, no spend, no live autonomy)
-- `aurion/alpha/status.py`, `scripts/alpha/generate_alpha_status.py` — alpha status tooling (offline,
-  self-contained)
+- `docs/alpha/DEMO_STATUS.md` — **export-scoped status** (what this package can and cannot do; the
+  full-project readiness matrix is private and not published)
 - `aurion-command-center/tests/alpha/**` + `tests/fixtures/alpha-screenshots/**` — screenshot capture
   spec + deterministic fixtures (the Playwright spec needs the private toolchain; the PNG fixtures ship)
 - `tests/test_*_001.py` (×5) — public-safe honesty/demo tests, incl.
@@ -48,9 +47,6 @@ A complete per-file list with SHA-256 prefixes and source paths is in
 
 ## Modified-for-export
 
-- `docs/alpha/README_ALPHA.md` — 3 outbound links to **excluded internal files**
-  (`AURION_GOVERNANCE.md`, `docs/demo/mission_receipt_demo.md`, `docs/mission_receipts.md`) were
-  repointed to in-export canonical targets so the public export has no dead links. No claims changed.
 - **Self-contained demo runner added.** `scripts/demo/run_public_spine_demo.py` (offline, no private
   imports) replaces the private `scripts/demo/public_spine_demo_loop_001.py` for public use. All
   README/docs/publish-pack/artifact "run/rerun/try the demo" instructions now point at it.
@@ -61,9 +57,6 @@ A complete per-file list with SHA-256 prefixes and source paths is in
   private `aurion.mission.receipts`) and `scripts/alpha/capture_screenshots.sh` (needs that script + npm
   + Playwright + a running UI). The screenshot PNG fixtures ship; "regenerate" notes updated to say the
   regeneration toolchain lives in the private repo.
-- `docs/alpha/README_ALPHA.md` — 3 outbound links to excluded internal files were repointed to in-export
-  canonical targets (no dead links); the demo command was repointed to the public runner. No claims
-  changed.
 - The `how_to_rerun`/validation blocks in the `PUBLIC_SPINE_DEMO_LOOP_001` and publish-pack artifacts
   were repointed to the public runner + public test; their recorded evidence (decision traces,
   AuditLedger) is unchanged and shipped fixture-backed.
@@ -103,3 +96,14 @@ A complete per-file list with SHA-256 prefixes and source paths is in
   independent plugin may remain proprietary.
 
 Content, privacy, links, and tests are clean (see scan table above).
+
+## Status surface (simplified for the public export)
+
+The full-project Alpha Status surface was **removed** from this public export because it described the
+whole private Aurion project (private TODO IDs, private artifact paths, full-safe runs, architecture
+gates) — not this bounded package. Removed: `docs/alpha/ALPHA_STATUS.md`, `docs/alpha/KNOWN_ISSUES.md`,
+`docs/alpha/README_ALPHA.md` (private dev README), `scripts/alpha/generate_alpha_status.py`, and
+`aurion/alpha/status.py` (the full-project status generator). Replaced by a concise, static
+`docs/alpha/DEMO_STATUS.md` that describes only the exported Demo Public Alpha package. `alpha_status.json`
+now carries only the export-level flags. Honest split preserved: `demo_public_alpha_ready: true`,
+`public_alpha_ready: false`, `publication_executed: false`.

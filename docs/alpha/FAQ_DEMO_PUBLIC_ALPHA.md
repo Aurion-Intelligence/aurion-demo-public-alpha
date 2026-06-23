@@ -55,9 +55,7 @@ gated behind explicit approval, and is not part of this demo.
 ### What is missing?
 
 Plenty — this is early software. Full public alpha is blocked by the broad frontend test suite. Most
-lab/dev modules sit behind Developer Mode and are not part of the Demo Public Alpha surface. See
-[`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) and [`ALPHA_STATUS.md`](ALPHA_STATUS.md) for the generated,
-evidence-derived truth.
+lab/dev modules sit behind Developer Mode and are not part of the Demo Public Alpha surface. See [`DEMO_STATUS.md`](DEMO_STATUS.md) for this package's status.
 
 ### What is the next milestone?
 

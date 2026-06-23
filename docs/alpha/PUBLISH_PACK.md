@@ -92,7 +92,7 @@ demo artifacts live under [`../../artifacts/demo/`](../../artifacts/demo/).
 ## Known Limitations
 
 See [`KNOWN_LIMITATIONS_PUBLIC.md`](KNOWN_LIMITATIONS_PUBLIC.md) for the public-safe limitation list, and
-[`ALPHA_STATUS.md`](ALPHA_STATUS.md) / [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the generated,
+[`DEMO_STATUS.md`](DEMO_STATUS.md) for the export-scoped status. Note:
 evidence-derived truth. Headline: full public alpha is blocked by the broad frontend test suite.
 
 ## What This Release Is Not
@@ -174,7 +174,7 @@ If an over-claim, broken link, or leaked path is found after publishing:
 3. **Edit or unpublish the release** — edit the GitHub release / social post text, or mark it as draft
    if the issue is material.
 4. **Re-verify** — run the Post-Publish Verification checklist again.
-5. **Record** — note the correction in `agents_memory/` and `TODO.md` so the next agent has context.
+5. **Record** — note the correction (e.g. in an issue or changelog) so the history is clear.
 
 ## Links
 
@@ -184,6 +184,6 @@ If an over-claim, broken link, or leaked path is found after publishing:
 - [GitHub announcement](ANNOUNCEMENT_GITHUB.md) · [Social announcements](ANNOUNCEMENT_SOCIAL.md)
 - [Demo Public Alpha FAQ](FAQ_DEMO_PUBLIC_ALPHA.md) · [Announcement draft](ANNOUNCEMENT_DRAFT.md)
 - [Install walkthrough](INSTALL_WALKTHROUGH.md) · [Troubleshooting](SETUP_TROUBLESHOOTING.md)
-- [Alpha status](ALPHA_STATUS.md) · [Known issues](KNOWN_ISSUES.md)
+- [Demo status](DEMO_STATUS.md)
 - [Public spine demo report](../../artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md)
 - [License (AGPL-3.0-only)](../../LICENSE)

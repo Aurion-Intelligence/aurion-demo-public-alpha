@@ -41,10 +41,10 @@
     "local file read (no model call)",
     "local model routing not called"
   ],
-  "permission_summary": "fs.read docs/alpha/ALPHA_STATUS.md -> allowed (allowed); net.request https://example.com -> denied (net_denied_no_allowlist); fs.write TODO.md -> denied (fs_write_denied)",
+  "permission_summary": "fs.read docs/alpha/DEMO_STATUS.md -> allowed (allowed); net.request https://example.com -> denied (net_denied_no_allowlist); fs.write TODO.md -> denied (fs_write_denied)",
   "allowed_actions": [
-    "Read docs/alpha/ALPHA_STATUS.md (2914 bytes)",
-    "Read docs/alpha/KNOWN_ISSUES.md (1780 bytes)",
+    "Read docs/alpha/DEMO_STATUS.md (2914 bytes)",
+    "Read docs/alpha/DEMO_STATUS.md (1780 bytes)",
     "Read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md (12000 bytes)",
     "Built advisory harness and loop plans.",
     "Recorded demo-scoped AuditLedger events.",
@@ -60,8 +60,8 @@
   "approvals_denied": [],
   "sandbox_eval_alignment_summary": "local_demo_completed; permission_boundary_checked; no live autonomy, no cloud, no spending",
   "completed_actions": [
-    "Read docs/alpha/ALPHA_STATUS.md (2914 bytes)",
-    "Read docs/alpha/KNOWN_ISSUES.md (1780 bytes)",
+    "Read docs/alpha/DEMO_STATUS.md (2914 bytes)",
+    "Read docs/alpha/DEMO_STATUS.md (1780 bytes)",
     "Read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md (12000 bytes)",
     "Built advisory harness and loop plans.",
     "Recorded demo-scoped AuditLedger events.",
@@ -90,13 +90,13 @@
   "evidence": [
     {
       "kind": "file",
-      "ref": "docs/alpha/ALPHA_STATUS.md",
+      "ref": "docs/alpha/DEMO_STATUS.md",
       "redaction_applied": true,
       "title": "Generated alpha status"
     },
     {
       "kind": "file",
-      "ref": "docs/alpha/KNOWN_ISSUES.md",
+      "ref": "docs/alpha/DEMO_STATUS.md",
       "redaction_applied": true,
       "title": "Generated alpha known issues"
     },
@@ -232,7 +232,7 @@
       "action": "permission.fs.read",
       "outcome": "allowed",
       "risk_level": "low",
-      "redacted_summary": "summary=fs.read docs/alpha/ALPHA_STATUS.md allowed",
+      "redacted_summary": "summary=fs.read docs/alpha/DEMO_STATUS.md allowed",
       "source_pointer": "audit:audit_public_spine_demo_001_20260620_043804_permission_1",
       "redaction_applied": true
     },
@@ -307,8 +307,8 @@
       "outcome": "read alpha status locally; deny external network and TODO write",
       "redacted_summary": "risk=Low-risk deterministic demo; external network and writes denied.; policy=Use verified read-only islands; do not invoke live autonomy controls.; reasons=LOCAL_ONLY, PERMISSION_BOUNDARY_HIT, NO_LIVE_AUTONOMY",
       "evidence_refs": [
-        "docs/alpha/ALPHA_STATUS.md",
-        "docs/alpha/KNOWN_ISSUES.md"
+        "docs/alpha/DEMO_STATUS.md",
+        "docs/alpha/DEMO_STATUS.md"
       ],
       "audit_refs": [
         "audit_public_spine_demo_001_20260620_043804_mission_planned",

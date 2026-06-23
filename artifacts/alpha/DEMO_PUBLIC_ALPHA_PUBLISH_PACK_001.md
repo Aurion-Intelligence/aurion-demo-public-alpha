@@ -31,7 +31,6 @@ forbidden over-claims.
 | `docs/alpha/FAQ_DEMO_PUBLIC_ALPHA.md` | Legacy honest FAQ (kept, still scanned) |
 | `tests/test_demo_public_alpha_publish_pack_001.py` | Honesty tests (existence, label, disclaimers, spine, screenshots, social, approval) |
 | `artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.{md,json}` | This artifact |
-| `agents_memory/2026-06-20_demo_public_alpha_publish_pack_001.md` | Handoff |
 
 **Modified:** `README.md` — "Public Demo Materials" section linking the publish docs (conditional per the
 README positioning test).
@@ -44,8 +43,8 @@ production-ready · not full public alpha.
 
 **Forbidden (and absent / only negated):** production-ready · full public alpha · enterprise-ready ·
 universal governance complete · safe unattended autonomy · live autonomy complete · all side effects
-governed · cloud escalation production-ready · SpendingBrain real adapters live · AgentFactory exists ·
-WatcherLoop complete.
+governed · cloud escalation production-ready · real spending adapters live · agent-spawning exists ·
+background watcher loops complete.
 
 The honesty test asserts forbidden terms appear only inside explicit negations, "we do NOT claim …"
 disclaimers, question headings, or "Do NOT say" prohibition lists — never as positive assertions.
@@ -77,10 +76,10 @@ exists yet; plugin/limb boundary under review).
 ## Validation
 
 ```text
-pytest tests/test_demo_public_alpha_publish_pack_001.py                 → 15 passed
-pytest publish + README + screenshot + install + demo honesty suite      → 114 passed
-python scripts/alpha/generate_alpha_status.py                            → demo_public_alpha_ready=true,
-                                                                            public_alpha_ready=false, yellow
+pytest tests/test_demo_public_alpha_publish_pack_001.py                 → pass
+pytest (full exported suite)                                            → 107 passed, 1 skipped
+python scripts/demo/run_public_spine_demo.py                           → demo_public_alpha_ready=true,
+                                                                          public_alpha_ready=false
 ```
 
 ## Git Tracking Notes
@@ -101,7 +100,6 @@ git add -- \
   tests/test_demo_public_alpha_publish_pack_001.py \
   artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.md \
   artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.json \
-  agents_memory/2026-06-20_demo_public_alpha_publish_pack_001.md \
   README.md
 ```
 

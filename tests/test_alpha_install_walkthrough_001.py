@@ -1,5 +1,5 @@
 """
-Tests for Alpha Install Walkthrough doc honesty — [alpha-install-walkthrough-001]
+Tests for Alpha Install Walkthrough doc honesty
 
 Validates:
   - Required files exist
@@ -24,8 +24,7 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WALKTHROUGH = REPO_ROOT / "docs" / "alpha" / "INSTALL_WALKTHROUGH.md"
 TROUBLESHOOTING = REPO_ROOT / "docs" / "alpha" / "SETUP_TROUBLESHOOTING.md"
-ALPHA_STATUS = REPO_ROOT / "docs" / "alpha" / "ALPHA_STATUS.md"
-KNOWN_ISSUES = REPO_ROOT / "docs" / "alpha" / "KNOWN_ISSUES.md"
+DEMO_STATUS = REPO_ROOT / "docs" / "alpha" / "DEMO_STATUS.md"
 
 # Secret-looking patterns that must NOT appear literally in walkthrough
 _REAL_KEY_PATTERNS = [
@@ -244,9 +243,9 @@ class TestRequiredReferences:
             "Walkthrough must link to SETUP_TROUBLESHOOTING.md"
         )
 
-    def test_references_alpha_status(self):
-        assert "ALPHA_STATUS.md" in self._content, (
-            "Walkthrough must reference ALPHA_STATUS.md"
+    def test_references_demo_status(self):
+        assert "DEMO_STATUS.md" in self._content, (
+            "Walkthrough must reference DEMO_STATUS.md"
         )
 
     def test_references_mission_receipt(self):
@@ -314,18 +313,10 @@ class TestAlphaStatusWiring:
             f"INSTALL_WALKTHROUGH.md must be at {expected} for the alpha status gate to detect it"
         )
 
-    def test_generate_alpha_status_script_exists(self):
-        script = REPO_ROOT / "scripts" / "alpha" / "generate_alpha_status.py"
-        assert script.exists(), "Alpha status generator script must exist"
+    def test_public_demo_runner_exists(self):
+        runner = REPO_ROOT / "scripts" / "demo" / "run_public_spine_demo.py"
+        assert runner.exists(), "Self-contained public demo runner must exist"
 
-    def test_alpha_status_generator_detects_walkthrough_path(self):
-        """The logic is in aurion/alpha/status.py (the compute_gates function).
-        Verify it checks for INSTALL_WALKTHROUGH.md."""
-        status_module = REPO_ROOT / "aurion" / "alpha" / "status.py"
-        if not status_module.exists():
-            pytest.skip("aurion/alpha/status.py not found")
-        src = status_module.read_text(encoding="utf-8")
-        assert "INSTALL_WALKTHROUGH.md" in src, (
-            "aurion/alpha/status.py must check for docs/alpha/INSTALL_WALKTHROUGH.md "
-            "so the install_walkthrough gate will pass after the doc is created"
-        )
+    def test_demo_status_page_exists(self):
+        demo_status = REPO_ROOT / "docs" / "alpha" / "DEMO_STATUS.md"
+        assert demo_status.exists(), "Export-scoped DEMO_STATUS.md must exist"

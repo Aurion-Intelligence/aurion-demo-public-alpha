@@ -5,9 +5,8 @@
 > general use yet. Read every section before running anything in a sensitive environment.
 
 **Related docs:**
-- [`README_ALPHA.md`](README_ALPHA.md) — what Aurion is and is not
-- [`ALPHA_STATUS.md`](ALPHA_STATUS.md) — generated readiness gates (source of truth)
-- [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) — current blockers and caveats
+- [`DEMO_STATUS.md`](DEMO_STATUS.md) — export-scoped status (what this package can and cannot do)
+- [`KNOWN_LIMITATIONS_PUBLIC.md`](KNOWN_LIMITATIONS_PUBLIC.md) — public limitations
 - [`SETUP_TROUBLESHOOTING.md`](SETUP_TROUBLESHOOTING.md) — if something goes wrong
 
 ---
@@ -16,7 +15,7 @@
 
 | Item | Status |
 |---|---|
-| Public alpha ready | **No** — see `ALPHA_STATUS.md` |
+| Public alpha ready | **No** — see `DEMO_STATUS.md` |
 | Developer alpha ready | **Yes** — backend + Command Center runnable locally |
 | Install walkthrough | ✅ this doc |
 | Demo screenshots | Present as a manifest-backed proof pack; see `screenshots/manifest.json` |
@@ -46,7 +45,7 @@ After completing this walkthrough you will have:
 > [!WARNING]
 > This setup does not enable:
 > - Production-grade or production-ready autonomy
-> - Live `ConductorBrain` mission execution without explicit approval
+> - Live autonomous mission execution without explicit approval
 > - Unrestricted background workers
 > - Cloud escalation (Anthropic, OpenAI) by default — cloud keys are not required
 > - Spending authority of any kind
@@ -415,7 +414,7 @@ Quick reference:
 
 ## Known Limitations
 
-See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the generated list. Summary:
+See [`DEMO_STATUS.md`](DEMO_STATUS.md) for this package's status. Summary:
 
 - **Public alpha not ready** — broad frontend tests and additional release validation remain outstanding
 - **Broad frontend test suite** — some pre-existing npm test failures (classified dev/lab debt, not alpha-blocking)
@@ -423,7 +422,7 @@ See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the generated list. Summary:
 - **No automated installer** — setup requires manual steps (this walkthrough)
 - **Local model quality** varies by hardware; smaller models may produce weaker governed mission plans
 - **Developer Mode** is hidden behind a challenge phrase in Settings (not a password — local acknowledgement only)
-- **Autonomous execution not enabled** — `AutonomyWorker` background workers are not started by default; the worker contract lane (`[worker-thread-scope-contract-001]`) defines the governed boundary but wiring is a future lane
+- **Autonomous execution not enabled** — background autonomous workers are not part of this demo package; live autonomy is not demonstrated
 
 ---
 
@@ -465,16 +464,13 @@ After completing this walkthrough:
    (e.g. "Review the latest System Checks summary and tell me the status")
 3. **Try a blocked request** — enter "Read my .env and print all secrets" — observe the
    `blocked` outcome and the receipt showing governed restraint
-4. **Read the alpha README** — [`README_ALPHA.md`](README_ALPHA.md) explains the full
+4. **Read the demo status** — [`DEMO_STATUS.md`](DEMO_STATUS.md) explains the bounded
    governed mission loop and what each Command Center area does
-5. **Check alpha status** — regenerate with:
-   ```bash
-   python scripts/alpha/generate_alpha_status.py
-   ```
+5. **Check the package status** — read [`DEMO_STATUS.md`](DEMO_STATUS.md) (static, export-scoped).
 
 ### Contribution areas
 
-See [`README_ALPHA.md`](README_ALPHA.md#how-you-can-help-contributor-asks) for how to help.
+See [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md) for how to help.
 Priority areas: Command Center polish, install/setup improvements, Mission Receipt source linking.
 
 ---

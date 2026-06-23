@@ -2,8 +2,7 @@
 
 > Public-safe limitations for Aurion's **controlled Demo Public Alpha**. This document is intentionally
 > honest. Aurion is **not production-ready**, **not a full public alpha**, and **not enterprise-ready**.
-> The generated, evidence-derived truth lives in [`ALPHA_STATUS.md`](ALPHA_STATUS.md) and
-> [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md).
+> The export-scoped status lives in [`DEMO_STATUS.md`](DEMO_STATUS.md).
 
 Canonical status:
 
@@ -72,6 +71,5 @@ full-public-alpha blocker: broad_frontend_tests = fail
 
 ## Where the machine-checked truth lives
 
-- [`ALPHA_STATUS.md`](ALPHA_STATUS.md) — generated readiness surface.
-- [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) — tracked issues.
+- [`DEMO_STATUS.md`](DEMO_STATUS.md) — export-scoped status (what this package can and cannot do).
 - [`../../artifacts/alpha/alpha_status.json`](../../artifacts/alpha/alpha_status.json) — machine status.

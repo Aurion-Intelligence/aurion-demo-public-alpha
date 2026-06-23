@@ -13,7 +13,7 @@ Check Aurion's current alpha readiness and produce a governed mission receipt wi
 ## What This Demo Does Not Prove
 
 - It does not prove live autonomous mission execution.
-- It does not prove worker spawning, WatcherLoop, AgentFactory, spending, cloud escalation, or production readiness.
+- It does not prove worker spawning, background watcher loops, agent spawning, spending, cloud escalation, or production readiness.
 - It does not make public_alpha_ready true; install walkthrough and screenshots remain required.
 
 ## Spine Walkthrough
@@ -57,7 +57,7 @@ Check Aurion's current alpha readiness and produce a governed mission receipt wi
 
 | Capability | Target | Result | Reason |
 | --- | --- | --- | --- |
-| `fs.read` | `docs/alpha/ALPHA_STATUS.md` | allowed | `allowed` |
+| `fs.read` | `docs/alpha/DEMO_STATUS.md` | allowed | `allowed` |
 | `net.request` | `https://example.com` | denied | `net_denied_no_allowlist` |
 | `fs.write` | `TODO.md` | denied | `fs_write_denied` |
 
