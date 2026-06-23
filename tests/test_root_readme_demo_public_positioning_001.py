@@ -97,14 +97,14 @@ def test_root_readme_status_disclaimer_exists() -> None:
 
 def test_legacy_case_readme_points_to_canonical_readme() -> None:
     # The lowercase `Readme.md` is only a case-compatibility stub used in the private monorepo. The
-    # public export ships a single canonical `README.md`, so the stub is intentionally absent here. When
-    # the stub is present it must point at the canonical README; when it is absent there is nothing to
-    # check.
+    # public export ships a single canonical `README.md`, so the stub is intentionally absent here.
+    # NOTE: on case-insensitive filesystems (Windows/macOS default) `(REPO_ROOT / "Readme.md").is_file()`
+    # would falsely match `README.md`, so we check the *actual* directory entry names (case-exact).
     import pytest
 
-    legacy = REPO_ROOT / "Readme.md"
-    if not legacy.is_file():
+    entries = {p.name for p in REPO_ROOT.iterdir()}
+    if "Readme.md" not in entries:
         pytest.skip("no legacy lowercase Readme.md stub in this repo (single canonical README.md)")
-    text = legacy.read_text(encoding="utf-8")
+    text = (REPO_ROOT / "Readme.md").read_text(encoding="utf-8")
     assert "[`README.md`](README.md)" in text
     assert "local-first governed AI mission system" in text
