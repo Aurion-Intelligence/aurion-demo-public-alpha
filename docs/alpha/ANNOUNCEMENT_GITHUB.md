@@ -68,13 +68,15 @@ Mission Receipt data:
 
 1. Read the [Install Walkthrough](INSTALL_WALKTHROUGH.md).
 2. Use the [Setup / Troubleshooting](SETUP_TROUBLESHOOTING.md) guide if you hit environment issues.
-3. Run the self-contained, offline demo locally:
+3. Run a **real** bounded governed mission locally (Linux/macOS/Windows, offline, no model):
    ```bash
-   python scripts/demo/run_public_spine_demo.py            # validate / replay (default)
-   python scripts/demo/run_public_spine_demo.py --mode generate   # generate a fresh bounded receipt
+   python3 -m aurion_demo run     # fresh governed mission (real read+write, blocked network, new receipt)
+   py -m aurion_demo run          # (Windows)
+   python3 -m aurion_demo replay  # validate the historical exported proof artifacts
    ```
-4. Inspect the artifacts under [`artifacts/demo/`](../../artifacts/demo/). The runner is offline and
-   uses only files in this repository — no network, no cloud models, no spend, no live autonomy.
+4. Inspect a fresh run's evidence under `artifacts/demo/generated/<run-id>/` (git-ignored), or the
+   historical proof under [`artifacts/demo/`](../../artifacts/demo/). Everything is offline and uses only
+   files in this repository — no network, no cloud models, no spend, no live autonomy.
 
 Follow the narrated [Demo Script](DEMO_SCRIPT.md) for a guided 3–5 minute walkthrough.
 

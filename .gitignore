@@ -5,7 +5,10 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Demo runner output (generated locally; not committed)
+# Generated mission artifacts (every `aurion_demo run` writes here; never committed)
+artifacts/demo/generated/
+
+# Legacy replay-runner output (generated locally; not committed)
 artifacts/demo/generated_public_spine_demo_receipt.json
 
 # OS / editor

@@ -11,7 +11,7 @@ This directory is a **clean public-safe export** of the approved Aurion Demo Pub
 It is **not** a git repository and has **not** been committed, pushed, or published. The private
 source repository was not modified.
 
-## What is included (46 files)
+## What is included (58 files)
 
 - `README.md` — canonical public entrypoint
 - `LICENSE` — **GNU AGPL-3.0-only** (canonical official text)
@@ -33,6 +33,23 @@ source repository was not modified.
 
 A complete per-file list with SHA-256 prefixes and source paths is in
 [`PUBLIC_REPO_MANIFEST.json`](PUBLIC_REPO_MANIFEST.json).
+
+## Bounded governed-mission runtime (added)
+
+A small, real, cross-platform runtime under `aurion_demo/` executes one bounded governed mission
+offline (no network, no model, no private imports):
+
+- `aurion_demo/` — package: mission model + deterministic planner, minimal public PermissionGraph
+  contract, bounded executor, AuditLedger + BlackBox writers, Mission Receipt generator, CLI, and a
+  bundled read-only sample workspace (`aurion_demo/workspace/project_note.md`).
+- `scripts/demo/run_governed_mission.py` — direct-script fallback.
+- `tests/test_aurion_demo_runtime_001.py` — deterministic runtime tests.
+- `.github/workflows/ci.yml` — Linux/Windows/macOS matrix running the mission + tests, no secrets.
+
+Commands: `python3 -m aurion_demo run` (Linux/macOS), `py -m aurion_demo run` (Windows), or the script
+fallback. `run` executes a fresh mission (writes git-ignored evidence under
+`artifacts/demo/generated/`); `replay` validates the historical exported proof artifacts. Optional model
+integration is **not included yet**.
 
 ## What is deliberately EXCLUDED
 

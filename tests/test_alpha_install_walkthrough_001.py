@@ -48,7 +48,7 @@ REQUIRED_SECTIONS = [
     "## Command Center Setup",
     "## Start Command Center",
     "## Health Checks",
-    "## Run / Inspect Public Spine Demo",
+    "## Run a bounded governed mission",
     "## Open Mission Receipt",
     "## Troubleshooting",
     "## Known Limitations",

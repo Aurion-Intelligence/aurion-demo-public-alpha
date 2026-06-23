@@ -84,10 +84,16 @@ narrator text and on-screen actions) usable for a recording, live demo, or writt
 ## Installation
 
 See [`INSTALL_WALKTHROUGH.md`](INSTALL_WALKTHROUGH.md) and
-[`SETUP_TROUBLESHOOTING.md`](SETUP_TROUBLESHOOTING.md). The self-contained, offline demo runs locally
-with `python scripts/demo/run_public_spine_demo.py` (validate/replay) or
-`python scripts/demo/run_public_spine_demo.py --mode generate` (generate a fresh bounded receipt). The
-demo artifacts live under [`../../artifacts/demo/`](../../artifacts/demo/).
+[`SETUP_TROUBLESHOOTING.md`](SETUP_TROUBLESHOOTING.md). The bounded governed-mission runtime is
+self-contained, offline, and cross-platform (Linux/macOS/Windows):
+
+- `python3 -m aurion_demo run` — execute a **fresh** bounded governed mission (real read + write +
+  blocked network + new AuditLedger/BlackBox/Mission Receipt under `artifacts/demo/generated/`).
+- `python3 -m aurion_demo replay` — validate the **historical** exported proof artifacts.
+- `python scripts/demo/run_governed_mission.py` — direct-script fallback (any platform).
+
+Model integration is **not included yet**. The demo artifacts live under
+[`../../artifacts/demo/`](../../artifacts/demo/).
 
 ## Known Limitations
 

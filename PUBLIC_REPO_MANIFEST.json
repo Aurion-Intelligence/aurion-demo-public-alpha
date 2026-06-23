@@ -3,25 +3,40 @@
   "generated_at": "2026-06-23",
   "license": "AGPL-3.0-only",
   "license_file": "LICENSE",
-  "status_page": "docs/alpha/DEMO_STATUS.md (export-scoped; full-project readiness matrix not published)",
-  "self_contained_demo": {
-    "runner": "scripts/demo/run_public_spine_demo.py",
-    "modes": [
-      "validate",
-      "generate"
+  "runtime": {
+    "package": "aurion_demo",
+    "commands": [
+      "python3 -m aurion_demo run",
+      "py -m aurion_demo run",
+      "python scripts/demo/run_governed_mission.py"
     ],
-    "offline": true
+    "run": "fresh bounded governed mission",
+    "replay": "validate historical proof artifacts",
+    "model_integration": "not included yet",
+    "offline": true,
+    "cross_platform": [
+      "linux",
+      "macos",
+      "windows"
+    ]
   },
+  "ci": ".github/workflows/ci.yml (ubuntu/windows/macos; runs mission + tests; no secrets)",
+  "status_page": "docs/alpha/DEMO_STATUS.md (export-scoped)",
   "source_repository": "private Aurion source repository (unchanged)",
   "source_commit": "c6e0a03cdfd560a80c4995abdd7b6ad2dda07f67",
   "export_root": "(repository root)",
   "git_history_included": false,
-  "file_count": 46,
+  "file_count": 58,
   "files": [
     {
+      "path": ".github/workflows/ci.yml",
+      "sha256_16": "e1e23b355454123c",
+      "bytes": 1339
+    },
+    {
       "path": ".gitignore",
-      "sha256_16": "e9971a759e6f52d5",
-      "bytes": 299
+      "sha256_16": "36a04162e8943f97",
+      "bytes": 420
     },
     {
       "path": "CONTRIBUTING.md",
@@ -35,8 +50,8 @@
     },
     {
       "path": "README.md",
-      "sha256_16": "337ca4fda4e1064e",
-      "bytes": 13107
+      "sha256_16": "8121e836434f17ee",
+      "bytes": 13725
     },
     {
       "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.json",
@@ -134,14 +149,59 @@
       "bytes": 1698
     },
     {
+      "path": "aurion_demo/__init__.py",
+      "sha256_16": "d35a6eb54d1a9af5",
+      "bytes": 984
+    },
+    {
+      "path": "aurion_demo/__main__.py",
+      "sha256_16": "a413497c907b06f6",
+      "bytes": 193
+    },
+    {
+      "path": "aurion_demo/cli.py",
+      "sha256_16": "da93de915b4aa6b0",
+      "bytes": 3704
+    },
+    {
+      "path": "aurion_demo/evidence.py",
+      "sha256_16": "8bb91bb84ae213c1",
+      "bytes": 3015
+    },
+    {
+      "path": "aurion_demo/executor.py",
+      "sha256_16": "ef553369ef2e2127",
+      "bytes": 9357
+    },
+    {
+      "path": "aurion_demo/model.py",
+      "sha256_16": "539f59b81aa5175f",
+      "bytes": 2878
+    },
+    {
+      "path": "aurion_demo/paths.py",
+      "sha256_16": "4feb8b3fb306c3c3",
+      "bytes": 1409
+    },
+    {
+      "path": "aurion_demo/permissions.py",
+      "sha256_16": "bc41006a6d8d2bc7",
+      "bytes": 2789
+    },
+    {
+      "path": "aurion_demo/workspace/project_note.md",
+      "sha256_16": "5540b943a42bcb0b",
+      "bytes": 1151
+    },
+    {
       "path": "docs/alpha/ANNOUNCEMENT_DRAFT.md",
       "sha256_16": "d7f968cedc848812",
       "bytes": 3772
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_GITHUB.md",
-      "sha256_16": "f78d1c27d80ab5cd",
-      "bytes": 5581
+      "sha256_16": "c003a998848ca9ce",
+      "bytes": 5767
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_SOCIAL.md",
@@ -155,8 +215,8 @@
     },
     {
       "path": "docs/alpha/DEMO_STATUS.md",
-      "sha256_16": "970a2ed168e511d1",
-      "bytes": 3509
+      "sha256_16": "9a8bb80f8399b1fe",
+      "bytes": 4566
     },
     {
       "path": "docs/alpha/FAQ_DEMO_PUBLIC_ALPHA.md",
@@ -165,18 +225,18 @@
     },
     {
       "path": "docs/alpha/INSTALL_WALKTHROUGH.md",
-      "sha256_16": "98f3abfc127cf517",
-      "bytes": 15087
+      "sha256_16": "e6ded7090dfcff06",
+      "bytes": 15670
     },
     {
       "path": "docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md",
-      "sha256_16": "ce0a32e4cbf23a3e",
-      "bytes": 3148
+      "sha256_16": "392050602b5dca47",
+      "bytes": 3459
     },
     {
       "path": "docs/alpha/PUBLISH_PACK.md",
-      "sha256_16": "1aa050a27c4ba89c",
-      "bytes": 8202
+      "sha256_16": "91bb8ceb52a94d98",
+      "bytes": 8517
     },
     {
       "path": "docs/alpha/SCREENSHOT_GALLERY.md",
@@ -219,19 +279,29 @@
       "bytes": 2609
     },
     {
+      "path": "scripts/demo/run_governed_mission.py",
+      "sha256_16": "eef1af85e712454c",
+      "bytes": 757
+    },
+    {
       "path": "scripts/demo/run_public_spine_demo.py",
       "sha256_16": "556583284bf87f28",
       "bytes": 9669
     },
     {
       "path": "tests/test_alpha_install_walkthrough_001.py",
-      "sha256_16": "b32ea6cf9ac642ed",
-      "bytes": 12804
+      "sha256_16": "55ad50ef2e5167e0",
+      "bytes": 12803
     },
     {
       "path": "tests/test_alpha_screenshot_capture_001.py",
       "sha256_16": "256473ee75ef10c7",
       "bytes": 5439
+    },
+    {
+      "path": "tests/test_aurion_demo_runtime_001.py",
+      "sha256_16": "774d1a370ecc1b23",
+      "bytes": 6837
     },
     {
       "path": "tests/test_demo_public_alpha_publish_pack_001.py",

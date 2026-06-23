@@ -1,0 +1,225 @@
+"""
+Bounded executor — runs a deterministic plan through the PermissionGraph contract, performs only
+allowed local actions, records fresh AuditLedger + BlackBox evidence, and emits a fresh Mission Receipt.
+
+This is a REAL execution (it reads the bundled note and writes a new artifact), not a replay of the
+historical exported receipt. Each run gets a unique run_id. No network, no private imports.
+"""
+from __future__ import annotations
+
+import json
+import secrets
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from pathlib import Path
+
+from . import __version__
+from .evidence import AuditLedger, BlackBox, utc_now_iso
+from .model import MissionPlan, build_plan
+from .paths import GENERATED_DIR, REPO_ROOT, SAMPLE_NOTE, rel_to_repo
+from .permissions import evaluate
+
+
+def new_run_id() -> str:
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
+    return f"run_{stamp}_{secrets.token_hex(4)}"
+
+
+@dataclass
+class StepResult:
+    index: int
+    capability: str
+    target: str
+    allowed: bool
+    reason_code: str
+    reason: str
+    performed: bool
+    detail: str = ""
+
+
+@dataclass
+class MissionOutcome:
+    run_id: str
+    goal: str
+    plan_id: str
+    status: str
+    step_results: list[StepResult] = field(default_factory=list)
+    generated_artifacts: list[str] = field(default_factory=list)
+    audit_path: str = ""
+    blackbox_dir: str = ""
+    receipt_path: str = ""
+    audit_event_count: int = 0
+    blackbox_record_count: int = 0
+    # Absolute run directory (for programmatic/test access). Display/evidence always use repo-relative.
+    abs_run_dir: str = ""
+    abs_audit_path: str = ""
+    abs_blackbox_dir: str = ""
+    abs_receipt_path: str = ""
+    abs_generated_artifacts: list[str] = field(default_factory=list)
+
+
+def _extract_action_items(note_text: str) -> list[str]:
+    """Deterministically pick three action items from the bundled note.
+
+    The note marks candidate items with a leading '- [ ] ' checkbox; we take the first three in order.
+    This is deterministic and contains no model/inference — honest about being a fixed extraction.
+    """
+    items: list[str] = []
+    for line in note_text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("- [ ]"):
+            items.append(stripped[len("- [ ]"):].strip())
+    return items[:3]
+
+
+def run_mission(goal: str | None = None, *, generated_dir: Path | None = None) -> MissionOutcome:
+    """Execute the bounded governed mission for real. Returns a MissionOutcome."""
+    plan: MissionPlan = build_plan(goal) if goal else build_plan()
+    run_id = new_run_id()
+    gen_dir = Path(generated_dir).resolve() if generated_dir else GENERATED_DIR
+    gen_dir.mkdir(parents=True, exist_ok=True)
+
+    run_dir = gen_dir / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    audit = AuditLedger(run_dir / "audit.jsonl", run_id)
+    blackbox = BlackBox(run_dir / "blackbox", run_id)
+
+    audit.record("mission.plan.created", "completed",
+                 f"Bounded plan {plan.plan_id} created with {len(plan.microsteps)} microsteps.",
+                 plan_id=plan.plan_id, goal=plan.goal)
+
+    results: list[StepResult] = []
+    generated: list[str] = []
+    abs_generated: list[str] = []
+    note_text = ""
+
+    for step in plan.microsteps:
+        decision = evaluate(step.capability, step.target)
+        audit_id = audit.record(
+            f"permission.{step.capability}", "allowed" if decision.allowed else "denied",
+            f"{step.capability} {step.target} -> {'allowed' if decision.allowed else 'denied'} "
+            f"({decision.reason_code})",
+        )
+        performed = False
+        detail = ""
+
+        if decision.allowed and step.capability == "fs.read":
+            # Only ever read inside the workspace; re-resolve and re-check the boundary at I/O time.
+            from .permissions import _resolve_target_path  # local import: internal helper
+            from .paths import is_within, WORKSPACE_DIR
+            path = _resolve_target_path(step.target)
+            if is_within(path, WORKSPACE_DIR) and path.is_file():
+                note_text = path.read_text(encoding="utf-8")
+                performed = True
+                detail = f"Read {len(note_text)} chars from {rel_to_repo(path)}."
+                audit.record("fs.read", "completed", detail)
+
+        elif decision.allowed and step.capability == "fs.write":
+            # The PermissionGraph already validated the write capability against the contract. The actual
+            # write destination is always inside this run's directory (under the active generated dir),
+            # which is the enforced, sandboxed write boundary.
+            from .paths import is_within
+            out_path = (run_dir / Path(step.target).name).resolve()
+            assert is_within(out_path, run_dir), "write must stay inside the run directory"
+            items = _extract_action_items(note_text)
+            lines = [
+                "# Action Items (generated by aurion_demo)",
+                "",
+                f"Run: {run_id}",
+                f"Source note: {rel_to_repo(SAMPLE_NOTE)}",
+                "",
+            ]
+            if items:
+                for i, it in enumerate(items, 1):
+                    lines.append(f"{i}. {it}")
+            else:
+                lines.append("_No checkbox action items found in the source note._")
+            out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+            performed = True
+            generated.append(rel_to_repo(out_path))
+            abs_generated.append(str(out_path.resolve()))
+            detail = f"Wrote {len(items)} action items to {rel_to_repo(out_path)}."
+            audit.record("fs.write", "completed", detail)
+
+        elif not decision.allowed and step.capability == "net.request":
+            detail = "External network step blocked by PermissionGraph (no network permission)."
+
+        blackbox.record(
+            decision_type="permission",
+            outcome="allowed" if decision.allowed else "denied",
+            reason_codes=[decision.reason_code],
+            audit_refs=[audit_id],
+            evidence_refs=[rel_to_repo(SAMPLE_NOTE)] if step.capability == "fs.read" else [],
+            capability=step.capability,
+            target=step.target,
+            performed=performed,
+        )
+
+        results.append(StepResult(
+            index=step.index, capability=step.capability, target=step.target,
+            allowed=decision.allowed, reason_code=decision.reason_code, reason=decision.reason,
+            performed=performed, detail=detail,
+        ))
+
+    audit.record("mission.completed", "completed",
+                 f"Mission completed: {sum(r.performed for r in results)} actions performed, "
+                 f"{sum(not r.allowed for r in results)} steps denied.")
+    audit.flush()
+
+    outcome = MissionOutcome(
+        run_id=run_id, goal=plan.goal, plan_id=plan.plan_id, status="completed",
+        step_results=results, generated_artifacts=generated,
+        audit_path=rel_to_repo(audit.path), blackbox_dir=rel_to_repo(blackbox.dir),
+        audit_event_count=len(audit.events), blackbox_record_count=len(blackbox.records),
+        abs_run_dir=str(run_dir.resolve()),
+        abs_audit_path=str(audit.path.resolve()),
+        abs_blackbox_dir=str(blackbox.dir.resolve()),
+        abs_generated_artifacts=abs_generated,
+    )
+
+    receipt_path = _write_receipt(run_dir, outcome, plan, audit, blackbox)
+    outcome.receipt_path = rel_to_repo(receipt_path)
+    outcome.abs_receipt_path = str(receipt_path.resolve())
+    return outcome
+
+
+def _write_receipt(run_dir: Path, outcome: MissionOutcome, plan: MissionPlan,
+                   audit: AuditLedger, blackbox: BlackBox) -> Path:
+    receipt = {
+        "receipt_id": f"rcpt_{outcome.run_id}",
+        "run_id": outcome.run_id,
+        "generated_by": f"aurion_demo {__version__}",
+        "is_replay_of_historical": False,
+        "created_at": utc_now_iso(),
+        "goal": outcome.goal,
+        "plan_id": plan.plan_id,
+        "status": outcome.status,
+        "receipt_classification": "bounded_real_run",
+        "public_alpha_ready_claimed": False,
+        "allowed_steps": [
+            {"index": r.index, "capability": r.capability, "target": r.target,
+             "reason_code": r.reason_code, "performed": r.performed}
+            for r in outcome.step_results if r.allowed
+        ],
+        "blocked_steps": [
+            {"index": r.index, "capability": r.capability, "target": r.target,
+             "reason_code": r.reason_code, "reason": r.reason}
+            for r in outcome.step_results if not r.allowed
+        ],
+        "generated_artifacts": outcome.generated_artifacts,
+        "evidence": {
+            "audit_ledger": outcome.audit_path,
+            "audit_event_ids": audit.event_ids,
+            "blackbox_dir": outcome.blackbox_dir,
+            "blackbox_trace_ids": blackbox.trace_ids,
+        },
+        "boundaries": [
+            "no network", "no cloud models", "no spend", "no account changes",
+            "no live autonomy", "reads only inside bundled workspace",
+            "writes only inside generated-artifacts directory",
+        ],
+    }
+    path = run_dir / "mission_receipt.json"
+    path.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return path

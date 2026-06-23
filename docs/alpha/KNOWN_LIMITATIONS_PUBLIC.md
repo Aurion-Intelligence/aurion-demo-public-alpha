@@ -44,8 +44,11 @@ full-public-alpha blocker: broad_frontend_tests = fail
 
 ## Platform support
 
-- The **installation path may be environment-sensitive** (OS, Python/Node versions, build tooling).
-- There is **no polished cross-platform installer** claim. Expect manual setup steps.
+- The **bounded governed-mission runtime** (`python3 -m aurion_demo run`) runs on Linux, macOS, and
+  Windows with the Python standard library only — no Bash, Docker, systemd, Ollama, or model required.
+- The **full Aurion runtime** (Command Center, backend, model routing) is **not** included here and its
+  setup remains environment-sensitive. There is **no polished cross-platform installer** for the full
+  product; expect manual setup steps for anything beyond the bounded mission runtime.
 
 ## External tools
 

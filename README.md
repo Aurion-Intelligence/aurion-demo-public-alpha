@@ -59,31 +59,40 @@ autonomous capability. This package's status — what it can and cannot do — i
 [`docs/alpha/DEMO_STATUS.md`](docs/alpha/DEMO_STATUS.md). The full-project
 readiness matrix is private and not published here.
 
-## Public Spine Demo
+## Run a real bounded governed mission
 
-The public spine demo is a deterministic, local-first proof loop. It demonstrates
-the governed path without live autonomy, worker spawning, cloud calls, spending,
-external posting, or approval mutation.
+This package includes a small, real, cross-platform governed-mission runtime. One command executes a
+**fresh** bounded mission and produces new evidence:
 
-Read the demo artifacts:
-
-- [`artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md)
-- [`artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json)
-
-Run it locally (offline, no network, no cloud, no private modules):
-
-```bash
-# Validate / replay the exported canonical demo receipt (default):
-python scripts/demo/run_public_spine_demo.py
-
-# Or generate a fresh bounded demo receipt deterministically:
-python scripts/demo/run_public_spine_demo.py --mode generate --out artifacts/demo/generated_public_spine_demo_receipt.json
+```text
+Goal → deterministic plan → microsteps → permission evaluation
+     → allowed local read → allowed bounded artifact write
+     → blocked external-network step
+     → fresh AuditLedger events → fresh BlackBox decisions → fresh Mission Receipt
 ```
 
-The runner works entirely from files in this repository. In **validate** mode it replays the exported
-canonical Mission Receipt and its fixture-backed AuditLedger / BlackBox evidence; in **generate** mode
-it writes a new bounded (dry-run) Mission Receipt. It does not use the network, call cloud models,
-spend money, or perform live autonomy.
+Run it (offline, no network, no cloud, no model, no private modules):
+
+| Platform | Command |
+|---|---|
+| Linux / macOS | `python3 -m aurion_demo run` |
+| Windows | `py -m aurion_demo run` |
+| Any (script fallback) | `python scripts/demo/run_governed_mission.py` |
+
+The bundled mission: *"Review the included project note, identify three action items, save the result
+inside the demo workspace, and do not use the internet."* It reads only the included sample note, writes
+only inside the generated-artifacts directory, and the external-research step is **blocked** because no
+network permission is granted. Generated files live under `artifacts/demo/generated/` and are
+git-ignored (each run is a fresh, real execution — not a replay).
+
+### `run` vs `replay`
+
+- **`run`** — executes a fresh miniature governed mission (real read + write + blocked network + new
+  AuditLedger / BlackBox / Mission Receipt).
+- **`replay`** (`python3 -m aurion_demo replay`) — validates the historical exported proof artifacts
+  ([`PUBLIC_SPINE_DEMO_LOOP_001`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md)) without executing a new
+  mission. The standalone replay runner is `python scripts/demo/run_public_spine_demo.py`.
+- **Optional model integration** — *not included yet.* The runtime is fully deterministic and offline.
 
 ## What Works Today
 
@@ -159,20 +168,20 @@ Start with the alpha walkthrough:
 4. Open Command Center and inspect `/mission-receipts`.
 5. Run the public spine demo if you want a fresh receipt.
 
-## Run / Inspect the Public Spine Demo
+## Run / Inspect the Demo
 
 ```bash
-python scripts/demo/run_public_spine_demo.py            # validate / replay (default)
-python scripts/demo/run_public_spine_demo.py --mode generate   # generate a fresh bounded receipt
+python3 -m aurion_demo run        # fresh bounded governed mission (real run)
+python3 -m aurion_demo replay     # validate the historical exported proof artifacts
 ```
 
 Then inspect:
 
-- the generated demo report:
+- a fresh run's evidence under `artifacts/demo/generated/<run-id>/` (audit.jsonl, blackbox/,
+  mission_receipt.json) — git-ignored
+- the historical proof report:
   [`artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md)
-- the generated demo data:
-  [`artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json)
-- Command Center's read-only Mission Receipts view at `/mission-receipts`
+  and data [`artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json`](artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json)
 - this package's status:
   [`docs/alpha/DEMO_STATUS.md`](docs/alpha/DEMO_STATUS.md)
 

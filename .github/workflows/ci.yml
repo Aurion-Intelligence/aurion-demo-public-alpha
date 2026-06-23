@@ -1,0 +1,46 @@
+name: Demo Public Alpha CI
+
+# Runs the bounded governed mission and the exported test suite on Linux, Windows, and macOS.
+# No secrets, no external services, no network — everything is offline and self-contained.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-mission:
+    name: Run bounded mission + tests
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pytest (standard library only otherwise)
+        run: python -m pip install --upgrade pip pytest
+
+      - name: Run the bounded governed mission (module form)
+        run: python -m aurion_demo run
+
+      - name: Run the bounded governed mission (script fallback)
+        run: python scripts/demo/run_governed_mission.py
+
+      - name: Validate the historical proof artifacts (replay)
+        run: python -m aurion_demo replay
+
+      - name: Run the exported test suite
+        run: python -m pytest tests/ -p no:cacheprovider -q

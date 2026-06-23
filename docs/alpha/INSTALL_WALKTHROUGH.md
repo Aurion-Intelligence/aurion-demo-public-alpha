@@ -333,30 +333,41 @@ artifacts are present. It does not start the backend or call any model.
 
 ---
 
-## Run / Inspect Public Spine Demo
+## Run a bounded governed mission
 
-The public spine demo generates a canonical Mission Receipt locally — no network, no cloud
-keys, no Ollama required.
+The bounded governed-mission runtime executes a real mission locally — no network, no cloud keys, no
+Ollama, no model required. It works on Linux, macOS, and Windows with the Python standard library only.
 
 ```bash
-# From repo root (venv active)
-python scripts/demo/run_public_spine_demo.py
+# Linux / macOS — from the repo root
+python3 -m aurion_demo run
+
+# Windows
+py -m aurion_demo run
+
+# Direct-script fallback (any platform)
+python scripts/demo/run_governed_mission.py
 ```
 
-Expected output:
+The mission will:
 
-```
-Mission Receipt created:
-  ID:       <receipt-id>
-  Artifact: artifacts/mission_receipts/<timestamp>_demo_...json
-  Status:   completed
+1. Build a deterministic plan with microsteps for the bundled goal.
+2. Evaluate each step through the minimal public PermissionGraph contract.
+3. Read **only** the included sample note (inside the bundled workspace).
+4. Attempt an external-research step that is **blocked** (no network permission).
+5. Write the three identified action items **only** inside the generated-artifacts directory.
+6. Emit fresh AuditLedger events, BlackBox decisions, and a Mission Receipt under
+   `artifacts/demo/generated/<run-id>/` (git-ignored).
+7. Print a terminal summary of goal, allowed steps, blocked steps, generated artifacts, and evidence
+   paths.
+
+To validate the **historical** exported proof artifacts instead (no new run):
+
+```bash
+python3 -m aurion_demo replay
 ```
 
-The demo will:
-1. Create a governed mission with an explicit plan (microsteps)
-2. Pass it through the alignment gate
-3. Show governed restraint (the external web-fetch step is **skipped** — this is expected)
-4. Write a Mission Receipt JSON artifact to `artifacts/mission_receipts/`
+Optional model integration is **not included yet**.
 
 > [!NOTE]
 > The skipped external web-fetch step is **not a failure**. It is intentional governed
