@@ -1,0 +1,91 @@
+{
+  "mission_id": "DEMO-PUBLIC-ALPHA-PUBLISH-PACK-001",
+  "todo_id": "demo-public-alpha-publish-pack-001",
+  "generated_at": "2026-06-21",
+  "release_name": "Aurion Demo Public Alpha",
+  "release_category": "controlled_public_demo",
+  "demo_public_alpha_ready": true,
+  "public_alpha_ready": false,
+  "overall_status": "yellow",
+  "tracked_readiness_verdict": "ready_with_minor_caveats",
+  "publication_executed": false,
+  "documents": [
+    "docs/alpha/PUBLISH_PACK.md",
+    "docs/alpha/DEMO_SCRIPT.md",
+    "docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md",
+    "docs/alpha/SCREENSHOT_GALLERY.md",
+    "docs/alpha/ANNOUNCEMENT_GITHUB.md",
+    "docs/alpha/ANNOUNCEMENT_SOCIAL.md",
+    "docs/alpha/FAQ_DEMO_PUBLIC_ALPHA.md",
+    "docs/alpha/ANNOUNCEMENT_DRAFT.md",
+    "docs/alpha/INSTALL_WALKTHROUGH.md",
+    "docs/alpha/SETUP_TROUBLESHOOTING.md",
+    "docs/alpha/ALPHA_STATUS.md",
+    "docs/alpha/KNOWN_ISSUES.md"
+  ],
+  "screenshots": [
+    "docs/alpha/screenshots/manifest.json",
+    "docs/alpha/screenshots/01-command-center-shell.png",
+    "docs/alpha/screenshots/02-mission-receipts-list.png",
+    "docs/alpha/screenshots/03-public-spine-demo-receipt-detail.png",
+    "docs/alpha/screenshots/04-demo-governance-evidence.png",
+    "docs/alpha/screenshots/05-alpha-status.png"
+  ],
+  "required_disclaimers": [
+    "not production-ready",
+    "not full public alpha",
+    "not enterprise-ready",
+    "not complete unattended autonomy"
+  ],
+  "pre_publish_checks": [
+    "Canonical demo files are committed",
+    "Git working tree reviewed",
+    "README links resolve",
+    "Screenshot manifest passes",
+    "Demo receipt renders",
+    "Install walkthrough passes",
+    "No secrets or local paths found",
+    "demo_public_alpha_ready is true",
+    "public_alpha_ready remains false",
+    "No production, enterprise, or live-autonomy claims",
+    "Operator explicitly approves publication"
+  ],
+  "blocking_issues": [
+    "broad_frontend_tests: fail (blocks full public alpha; out of scope for this lane)"
+  ],
+  "known_caveats": [
+    "broad frontend tests block full public alpha",
+    "publication materials are drafts for operator review — nothing published, no release created",
+    "software license: open source under AGPL-3.0-only (strong copyleft; modified network use may trigger AGPL §13 source-offer; no paid commercial license exists yet; plugin/limb boundary under review)"
+  ],
+  "claim_boundaries": {
+    "allowed": [
+      "Aurion is local-first.",
+      "Aurion is permission-governed.",
+      "Aurion turns goals into governed missions.",
+      "Aurion produces Mission Receipts.",
+      "The demo uses the real Command Center UI.",
+      "The screenshots use deterministic fixtures derived from a genuine demo Mission Receipt.",
+      "The bounded public spine demo passes its focused tests.",
+      "The Demo Public Alpha package is ready with minor caveats."
+    ],
+    "forbidden": [
+      "Aurion is production-ready.",
+      "Aurion is full-public-alpha ready.",
+      "Aurion has complete live autonomy.",
+      "Aurion universally governs every side effect.",
+      "Aurion is enterprise-ready.",
+      "Aurion is proven safe for unattended operation.",
+      "Aurion has complete cloud/tool/provider support."
+    ]
+  },
+  "public_narrative": "Aurion is a local-first, permission-governed AI mission system that turns user goals into governed missions and records what happened through receipts, evidence, and audit trails. This controlled Demo Public Alpha shows one governed spine: Goal -> Mission Plan -> Permission Check -> AuditLedger -> Mission Receipt -> Command Center. It is not production-ready and not full public alpha; agents should leave receipts.",
+  "validation": [
+    "pytest tests/test_demo_public_alpha_publish_pack_001.py -> all pass",
+    "pytest focused honesty suite (public spine demo + install + screenshot + readme positioning) -> pass",
+    "python scripts/alpha/generate_alpha_status.py -> demo_public_alpha_ready=true, public_alpha_ready=false, yellow"
+  ],
+  "git_tracking_note": "New brief-named publish docs + updated test are untracked/modified; README.md is tracked. Explicit-pathspec staging command is in the markdown artifact and handoff. NOT executed (no add -A, no commit, no push, no release).",
+  "recommendation": "publication_materials_ready_for_operator_review",
+  "recommended_next_step": "operator_review_then_publish_or_record_demo"
+}

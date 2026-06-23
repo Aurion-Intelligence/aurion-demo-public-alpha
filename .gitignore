@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Demo runner output (generated locally; not committed)
+artifacts/demo/generated_public_spine_demo_receipt.json
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Node (Command Center, if a contributor builds it)
+node_modules/

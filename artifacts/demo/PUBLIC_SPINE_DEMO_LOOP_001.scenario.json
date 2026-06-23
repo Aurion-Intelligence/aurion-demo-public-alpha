@@ -1,0 +1,78 @@
+{
+  "demo_id": "PUBLIC-SPINE-DEMO-LOOP-001",
+  "todo_id": "public-spine-demo-loop-001",
+  "title": "Governed Repo Health Check Demo",
+  "user_goal": "Check Aurion's current alpha readiness and produce a governed mission receipt with evidence, warnings, and next steps.",
+  "expected_spine_stages": [
+    "user_goal",
+    "mission_plan",
+    "microsteps",
+    "permission_check",
+    "safe_local_action",
+    "proposed_only_action",
+    "audit_ledger_entry",
+    "blackbox_trace_or_honest_unavailable",
+    "mission_receipt",
+    "command_center_view"
+  ],
+  "allowed_capabilities": [
+    "read local repo metadata",
+    "read docs/alpha/ALPHA_STATUS.md",
+    "read docs/alpha/KNOWN_ISSUES.md",
+    "read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md",
+    "write demo artifacts under artifacts/demo",
+    "write canonical Mission Receipt artifacts under artifacts/mission_receipts",
+    "write demo-scoped AuditLedger JSONL under artifacts/demo",
+    "write demo-scoped Black Box trace under artifacts/demo when available",
+    "produce proposed-only next steps"
+  ],
+  "forbidden_capabilities": [
+    "live autonomous mission execution",
+    "worker spawning",
+    "cloud calls",
+    "spending",
+    "external posting",
+    "real file mutation outside artifacts/demo or Mission Receipt artifacts",
+    "approval mutation",
+    "restoring ConductorBrain runner",
+    "rewiring AutonomyWorker",
+    "bypassing unavailable autonomy controls"
+  ],
+  "expected_artifacts": [
+    "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.scenario.json",
+    "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json",
+    "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
+    "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.audit.jsonl",
+    "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/",
+    "artifacts/mission_receipts/*demo-PUBLIC-SPINE-DEMO-LOOP-001*.json",
+    "artifacts/mission_receipts/*demo-PUBLIC-SPINE-DEMO-LOOP-001*.md"
+  ],
+  "expected_receipt_fields": [
+    "schema_version",
+    "receipt_id",
+    "mission_id",
+    "user_goal_summary",
+    "what_aurion_understood",
+    "status",
+    "microsteps_summary",
+    "completed_actions",
+    "blocked_actions",
+    "audit_refs",
+    "blackbox_refs",
+    "evidence",
+    "warnings",
+    "missing_data",
+    "recommends_next",
+    "cost_decision",
+    "cost_estimate",
+    "budget_policy_summary",
+    "budget_stop_conditions"
+  ],
+  "expected_command_center_surface": {
+    "surface": "Mission Receipts",
+    "route": "/mission-receipts",
+    "read_only": true,
+    "expected_visibility": "Listed by the existing Mission Receipt loader because the receipt is mission_receipt_v1 and receipt_kind=demo."
+  },
+  "public_alpha_ready_claimed": false
+}

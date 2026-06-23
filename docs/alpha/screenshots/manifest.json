@@ -1,0 +1,45 @@
+{
+  "screenshot_set": "ALPHA-SCREENSHOT-CAPTURE-001",
+  "release_context": "demo_public_alpha",
+  "capture_method": "playwright_seeded_fixtures",
+  "capture_notes": "Rendered through the REAL Command Center UI (production build via vite preview) against deterministic seeded fixtures built from the genuine PUBLIC-SPINE-DEMO-LOOP-001 Mission Receipt. Backend API calls are intercepted (no live backend); the demo receipt data is real. These are demo, fixture-backed screenshots \u2014 NOT full-stack production screenshots.",
+  "regenerate": "Screenshots are shipped as deterministic, fixture-backed captures. The regeneration toolchain (Playwright + Command Center build) lives in the private Aurion repository and is not part of this public export.",
+  "screenshots": [
+    {
+      "file": "01-command-center-shell.png",
+      "title": "Command Center shell (Mission Control cockpit)",
+      "caption": "Aurion Command Center home cockpit (/mission-control) showing the public spine demo receipt, system readiness, approvals, and recommended next step.",
+      "safe_for_public_demo": true
+    },
+    {
+      "file": "02-mission-receipts-list.png",
+      "title": "Mission Receipts list",
+      "caption": "Read-only Mission Receipts list showing the Public Spine Demo Loop 001 receipt (Governed Mission, Dry Run, Cost Allowed, COMPLETED).",
+      "safe_for_public_demo": true
+    },
+    {
+      "file": "03-public-spine-demo-receipt-detail.png",
+      "title": "Public spine demo receipt detail",
+      "caption": "Detail view of the public spine demo Mission Receipt: status, receipt classification (dry run), and cost-governance evidence (decision: allowed, estimates, stop conditions).",
+      "safe_for_public_demo": true
+    },
+    {
+      "file": "04-demo-governance-evidence.png",
+      "title": "Demo governance evidence (permissions / audit / decision trace)",
+      "caption": "Governance evidence on the demo receipt: AuditLedger refs, BlackBox decision-trace ref, and honestly-labelled unavailable artifact refs (missing data shown as unavailable, never fake-green).",
+      "safe_for_public_demo": true
+    },
+    {
+      "file": "05-alpha-status.png",
+      "title": "Alpha mission-control status surface",
+      "caption": "Mission Control status cockpit showing honest readiness: no system checks run yet, external models require approval, demo receipt as governed proof \u2014 unavailable states shown honestly.",
+      "safe_for_public_demo": true
+    }
+  ],
+  "not_a_claim": [
+    "production ready",
+    "full public alpha",
+    "enterprise ready",
+    "unattended autonomy ready"
+  ]
+}

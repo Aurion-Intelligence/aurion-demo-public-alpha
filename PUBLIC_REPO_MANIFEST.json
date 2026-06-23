@@ -1,0 +1,268 @@
+{
+  "export_manifest_id": "PUBLIC-DEMO-REPO-EXPORT-001",
+  "generated_at": "2026-06-22",
+  "license": "AGPL-3.0-only",
+  "license_file": "LICENSE",
+  "self_contained_demo": {
+    "runner": "scripts/demo/run_public_spine_demo.py",
+    "modes": [
+      "validate",
+      "generate"
+    ],
+    "offline": true,
+    "no_private_imports": true,
+    "standalone_test": "tests/test_public_spine_demo_runner_001.py"
+  },
+  "source_repository": "private Aurion source repository (unchanged)",
+  "source_commit": "c6e0a03cdfd560a80c4995abdd7b6ad2dda07f67",
+  "export_root": "(repository root)",
+  "git_history_included": false,
+  "file_count": 49,
+  "files": [
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256_16": "58f653ebd3d56f6e",
+      "bytes": 2339
+    },
+    {
+      "path": "LICENSE",
+      "sha256_16": "0d96a4ff68ad6d4b",
+      "bytes": 34523
+    },
+    {
+      "path": "README.md",
+      "sha256_16": "689e9dc3b76a4de2",
+      "bytes": 12866
+    },
+    {
+      "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.json",
+      "sha256_16": "6ea1e4485e9ebcbe",
+      "bytes": 4407
+    },
+    {
+      "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.md",
+      "sha256_16": "055986e06930199a",
+      "bytes": 6548
+    },
+    {
+      "path": "artifacts/alpha/alpha_status.json",
+      "sha256_16": "ac6f0e973e9e87c5",
+      "bytes": 8173
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.audit.jsonl",
+      "sha256_16": "a007bfd77d29ee27",
+      "bytes": 21720
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_043804_permission_boundary.json",
+      "sha256_16": "a0b4230d8386d9cf",
+      "bytes": 1581
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_043841_permission_boundary.json",
+      "sha256_16": "d5cceec485793b92",
+      "bytes": 1581
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_151504_permission_boundary.json",
+      "sha256_16": "4c3a600592633fda",
+      "bytes": 1581
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_151727_permission_boundary.json",
+      "sha256_16": "2b434fd7fbd06a2c",
+      "bytes": 1581
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/indexes/router_traces.jsonl",
+      "sha256_16": "ccd880911a5a2349",
+      "bytes": 4842
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json",
+      "sha256_16": "c816aa7b3427268a",
+      "bytes": 11513
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
+      "sha256_16": "438333278548c832",
+      "bytes": 3904
+    },
+    {
+      "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.scenario.json",
+      "sha256_16": "1f2c377d613c4ed1",
+      "bytes": 2703
+    },
+    {
+      "path": "artifacts/mission_receipts/20260620_043804_demo-PUBLIC-SPINE-DEMO-LOOP-001.json",
+      "sha256_16": "9c1cc890e5876c51",
+      "bytes": 16968
+    },
+    {
+      "path": "artifacts/mission_receipts/20260620_043804_demo-PUBLIC-SPINE-DEMO-LOOP-001.md",
+      "sha256_16": "ef8c1a88d74b458f",
+      "bytes": 7685
+    },
+    {
+      "path": "artifacts/mission_receipts/20260620_043841_demo-PUBLIC-SPINE-DEMO-LOOP-001.json",
+      "sha256_16": "57f8bc3f49453e23",
+      "bytes": 16968
+    },
+    {
+      "path": "artifacts/mission_receipts/20260620_043841_demo-PUBLIC-SPINE-DEMO-LOOP-001.md",
+      "sha256_16": "ba600d83756b00d0",
+      "bytes": 7685
+    },
+    {
+      "path": "aurion-command-center/tests/alpha/alpha-screenshots.capture.spec.ts",
+      "sha256_16": "516cbfc675f159a3",
+      "bytes": 7644
+    },
+    {
+      "path": "aurion-command-center/tests/fixtures/alpha-screenshots/mission-receipt.detail.json",
+      "sha256_16": "c8817cf7619a06cb",
+      "bytes": 24443
+    },
+    {
+      "path": "aurion-command-center/tests/fixtures/alpha-screenshots/mission-receipts.list.json",
+      "sha256_16": "ee426caab3e3367a",
+      "bytes": 1698
+    },
+    {
+      "path": "aurion/alpha/status.py",
+      "sha256_16": "a9c95bf571c6be4e",
+      "bytes": 26768
+    },
+    {
+      "path": "docs/alpha/ALPHA_STATUS.md",
+      "sha256_16": "90a41ae15ac57097",
+      "bytes": 6011
+    },
+    {
+      "path": "docs/alpha/ANNOUNCEMENT_DRAFT.md",
+      "sha256_16": "d7f968cedc848812",
+      "bytes": 3772
+    },
+    {
+      "path": "docs/alpha/ANNOUNCEMENT_GITHUB.md",
+      "sha256_16": "7ccba5fefae51e66",
+      "bytes": 5667
+    },
+    {
+      "path": "docs/alpha/ANNOUNCEMENT_SOCIAL.md",
+      "sha256_16": "e7959a864707df12",
+      "bytes": 2989
+    },
+    {
+      "path": "docs/alpha/DEMO_SCRIPT.md",
+      "sha256_16": "d1a5295874c4ae8c",
+      "bytes": 4848
+    },
+    {
+      "path": "docs/alpha/FAQ_DEMO_PUBLIC_ALPHA.md",
+      "sha256_16": "107d183ab8ef388d",
+      "bytes": 4449
+    },
+    {
+      "path": "docs/alpha/INSTALL_WALKTHROUGH.md",
+      "sha256_16": "298f10f1307f9144",
+      "bytes": 15257
+    },
+    {
+      "path": "docs/alpha/KNOWN_ISSUES.md",
+      "sha256_16": "0128c99fc5736cfd",
+      "bytes": 3959
+    },
+    {
+      "path": "docs/alpha/KNOWN_LIMITATIONS_PUBLIC.md",
+      "sha256_16": "6d3ec9ec6e73d9fe",
+      "bytes": 3236
+    },
+    {
+      "path": "docs/alpha/PUBLISH_PACK.md",
+      "sha256_16": "05bb1d987c123333",
+      "bytes": 8271
+    },
+    {
+      "path": "docs/alpha/README_ALPHA.md",
+      "sha256_16": "708cced4ed763ffd",
+      "bytes": 15138
+    },
+    {
+      "path": "docs/alpha/SCREENSHOT_GALLERY.md",
+      "sha256_16": "6ae88ea741e39a58",
+      "bytes": 4049
+    },
+    {
+      "path": "docs/alpha/SETUP_TROUBLESHOOTING.md",
+      "sha256_16": "085a5a9b1d868310",
+      "bytes": 6054
+    },
+    {
+      "path": "docs/alpha/screenshots/01-command-center-shell.png",
+      "sha256_16": "39d0811226a1ea7a",
+      "bytes": 153527
+    },
+    {
+      "path": "docs/alpha/screenshots/02-mission-receipts-list.png",
+      "sha256_16": "ac81d41bddfa99a9",
+      "bytes": 118312
+    },
+    {
+      "path": "docs/alpha/screenshots/03-public-spine-demo-receipt-detail.png",
+      "sha256_16": "3fae1f0255d0cbfa",
+      "bytes": 166630
+    },
+    {
+      "path": "docs/alpha/screenshots/04-demo-governance-evidence.png",
+      "sha256_16": "750d30331e1cd1e6",
+      "bytes": 148294
+    },
+    {
+      "path": "docs/alpha/screenshots/05-alpha-status.png",
+      "sha256_16": "cb7467b44e7cbb5a",
+      "bytes": 153672
+    },
+    {
+      "path": "docs/alpha/screenshots/manifest.json",
+      "sha256_16": "a9783e6bd83002a1",
+      "bytes": 2609
+    },
+    {
+      "path": "scripts/alpha/generate_alpha_status.py",
+      "sha256_16": "c7fdf2875c86e407",
+      "bytes": 5278
+    },
+    {
+      "path": "scripts/demo/run_public_spine_demo.py",
+      "sha256_16": "556583284bf87f28",
+      "bytes": 9669
+    },
+    {
+      "path": "tests/test_alpha_install_walkthrough_001.py",
+      "sha256_16": "fe4082d607ea92fb",
+      "bytes": 13379
+    },
+    {
+      "path": "tests/test_alpha_screenshot_capture_001.py",
+      "sha256_16": "eef817dd251135ad",
+      "bytes": 5501
+    },
+    {
+      "path": "tests/test_demo_public_alpha_publish_pack_001.py",
+      "sha256_16": "de3151f067a3a47a",
+      "bytes": 11313
+    },
+    {
+      "path": "tests/test_public_spine_demo_runner_001.py",
+      "sha256_16": "8fbca26ad3b327f7",
+      "bytes": 3283
+    },
+    {
+      "path": "tests/test_root_readme_demo_public_positioning_001.py",
+      "sha256_16": "24ba0284bd0b7419",
+      "bytes": 3677
+    }
+  ]
+}

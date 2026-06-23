@@ -1,0 +1,282 @@
+{
+  "artifacts_produced": {
+    "audit_ledger": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.audit.jsonl",
+    "blackbox_trace": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_154730_permission_boundary.json",
+    "json": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.json",
+    "markdown": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
+    "receipt": {
+      "json": "artifacts/mission_receipts/20260620_154731_demo-PUBLIC-SPINE-DEMO-LOOP-001.json",
+      "markdown": "artifacts/mission_receipts/20260620_154731_demo-PUBLIC-SPINE-DEMO-LOOP-001.md"
+    },
+    "scenario": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.scenario.json"
+  },
+  "audit_blackbox_evidence": {
+    "audit_ref_status": {
+      "count": 6,
+      "notes": [],
+      "scope": "mission_id=demo-PUBLIC-SPINE-DEMO-LOOP-001",
+      "status": "wired"
+    },
+    "audit_refs": [
+      {
+        "action": "mission.plan.created",
+        "actor": "public_spine_demo_loop_001",
+        "audit_event_id": "audit_public_spine_demo_001_20260620_154730_mission_planned",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.029897+00:00",
+        "event_type": "mission.plan.created",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "outcome": "completed",
+        "redacted_summary": "summary=Demo mission plan created.",
+        "redaction_applied": true,
+        "risk_level": "low",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_mission_planned"
+      },
+      {
+        "action": "permission.fs.read",
+        "actor": "PermissionGraph",
+        "audit_event_id": "audit_public_spine_demo_001_20260620_154730_permission_1",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.029999+00:00",
+        "event_type": "permission.fs.read",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "outcome": "allowed",
+        "redacted_summary": "summary=fs.read docs/alpha/ALPHA_STATUS.md allowed",
+        "redaction_applied": true,
+        "risk_level": "low",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_permission_1"
+      },
+      {
+        "action": "permission.net.request",
+        "actor": "PermissionGraph",
+        "audit_event_id": "audit_public_spine_demo_001_20260620_154730_permission_2",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.030070+00:00",
+        "event_type": "permission.net.request",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "outcome": "denied",
+        "redacted_summary": "summary=net.request https://example.com net_denied_no_allowlist",
+        "redaction_applied": true,
+        "risk_level": "low",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_permission_2"
+      },
+      {
+        "action": "permission.fs.write",
+        "actor": "PermissionGraph",
+        "audit_event_id": "audit_public_spine_demo_001_20260620_154730_permission_3",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.030156+00:00",
+        "event_type": "permission.fs.write",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "outcome": "denied",
+        "redacted_summary": "summary=fs.write TODO.md fs_write_denied",
+        "redaction_applied": true,
+        "risk_level": "low",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_permission_3"
+      },
+      {
+        "action": "artifact.local_read.completed",
+        "actor": "public_spine_demo_loop_001",
+        "audit_event_id": "audit_public_spine_demo_001_20260620_154730_local_read",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.030221+00:00",
+        "event_type": "artifact.local_read.completed",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "outcome": "completed",
+        "redacted_summary": "summary=Read alpha status locally.",
+        "redaction_applied": true,
+        "risk_level": "low",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_local_read"
+      },
+      {
+        "action": "mission_receipt.generated",
+        "actor": "MissionReceiptBuilder",
+        "audit_event_id": "audit_public_spine_demo_001_20260620_154730_receipt_generated",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.030283+00:00",
+        "event_type": "mission_receipt.generated",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "outcome": "completed",
+        "redacted_summary": "summary=Canonical receipt generated.",
+        "redaction_applied": true,
+        "risk_level": "low",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_154730_receipt_generated"
+      }
+    ],
+    "blackbox_ref_status": {
+      "count": 1,
+      "notes": [],
+      "scope": "mission_id=demo-PUBLIC-SPINE-DEMO-LOOP-001",
+      "status": "wired"
+    },
+    "blackbox_refs": [
+      {
+        "audit_refs": [
+          "audit_public_spine_demo_001_20260620_154730_mission_planned",
+          "audit_public_spine_demo_001_20260620_154730_permission_1",
+          "audit_public_spine_demo_001_20260620_154730_permission_2",
+          "audit_public_spine_demo_001_20260620_154730_permission_3",
+          "audit_public_spine_demo_001_20260620_154730_local_read"
+        ],
+        "component": "scripts/demo/public_spine_demo_loop_001.py",
+        "conversation_id": "",
+        "created_at": "2026-06-20T15:47:31.032532+00:00",
+        "decision_type": "policy",
+        "evidence_refs": [
+          "docs/alpha/ALPHA_STATUS.md",
+          "docs/alpha/KNOWN_ISSUES.md"
+        ],
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "model_role": "not_called_deterministic_script",
+        "outcome": "read alpha status locally; deny external network and TODO write",
+        "redacted_summary": "risk=Low-risk deterministic demo; external network and writes denied.; policy=Use verified read-only islands; do not invoke live autonomy controls.; reasons=LOCAL_ONLY, PERMISSION_BOUNDARY_HIT, NO_LIVE_AUTONOMY",
+        "redaction_applied": true,
+        "risk_level": "",
+        "source_pointer": "blackbox:bb_public_spine_demo_001_20260620_154730_permission_boundary",
+        "trace_id": "bb_public_spine_demo_001_20260620_154730_permission_boundary",
+        "truncated": false,
+        "warnings": []
+      }
+    ]
+  },
+  "demo_id": "PUBLIC-SPINE-DEMO-LOOP-001",
+  "how_to_rerun": [
+    "python scripts/demo/run_public_spine_demo.py",
+    "python scripts/demo/run_public_spine_demo.py --mode generate",
+    "python -m pytest tests/test_public_spine_demo_runner_001.py --tb=short -q"
+  ],
+  "known_limitations": [
+    "Deterministic script, not live autonomous execution.",
+    "No network data collected; denied by PermissionGraph.",
+    "No TODO, approval, worker, or autonomy mutation.",
+    "Command Center visibility uses the existing Mission Receipts view; no new run/approval controls were added."
+  ],
+  "loop_plan_summary": {
+    "advisory_only": true,
+    "cost_decision": "allowed",
+    "loop_id": "mlp_ef07392bec",
+    "loop_type": "one_shot",
+    "max_cycles": 1,
+    "stop_conditions": [
+      "objective_reached",
+      "max_cycles_reached",
+      "max_runtime_reached",
+      "budget_exceeded"
+    ]
+  },
+  "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+  "permission_checks": [
+    {
+      "allowed": true,
+      "capability": "fs.read",
+      "reason_code": "allowed",
+      "target": "docs/alpha/ALPHA_STATUS.md"
+    },
+    {
+      "allowed": false,
+      "capability": "net.request",
+      "reason_code": "net_denied_no_allowlist",
+      "target": "https://example.com"
+    },
+    {
+      "allowed": false,
+      "capability": "fs.write",
+      "reason_code": "fs_write_denied",
+      "target": "TODO.md"
+    }
+  ],
+  "public_alpha_ready_claimed": false,
+  "read_results": [
+    {
+      "bytes_read": 2809,
+      "exists": true,
+      "path": "docs/alpha/ALPHA_STATUS.md",
+      "summary": "Read local artifact successfully."
+    },
+    {
+      "bytes_read": 1387,
+      "exists": true,
+      "path": "docs/alpha/KNOWN_ISSUES.md",
+      "summary": "Read local artifact successfully."
+    },
+    {
+      "bytes_read": 12000,
+      "exists": true,
+      "path": "artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md",
+      "summary": "Read local artifact successfully."
+    }
+  ],
+  "receipt_id": "rcpt-demo-PUBLIC-SPINE-DEMO-LOOP-001",
+  "receipt_link": {
+    "api_detail": "/api/mission-receipts/rcpt-demo-PUBLIC-SPINE-DEMO-LOOP-001",
+    "command_center_route": "/mission-receipts",
+    "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+    "receipt_id": "rcpt-demo-PUBLIC-SPINE-DEMO-LOOP-001"
+  },
+  "spine_walkthrough": [
+    {
+      "evidence": "scenario.user_goal",
+      "stage": "User goal"
+    },
+    {
+      "evidence": "MissionHarnessPlan + MissionLoopPlan advisory planners",
+      "stage": "Mission plan"
+    },
+    {
+      "evidence": "receipt.microsteps_summary",
+      "stage": "Microsteps"
+    },
+    {
+      "evidence": "PermissionGraph fs.read allowed; net.request and fs.write denied",
+      "stage": "Permission check"
+    },
+    {
+      "evidence": "local alpha artifacts read",
+      "stage": "Safe action"
+    },
+    {
+      "evidence": "next recommendations and memory candidate not written",
+      "stage": "Proposed-only action"
+    },
+    {
+      "evidence": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.audit.jsonl",
+      "stage": "AuditLedger"
+    },
+    {
+      "evidence": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.blackbox/decisions/2026-06-20/bb_public_spine_demo_001_20260620_154730_permission_boundary.json",
+      "stage": "Black Box"
+    },
+    {
+      "evidence": {
+        "json": "artifacts/mission_receipts/20260620_154731_demo-PUBLIC-SPINE-DEMO-LOOP-001.json",
+        "markdown": "artifacts/mission_receipts/20260620_154731_demo-PUBLIC-SPINE-DEMO-LOOP-001.md"
+      },
+      "stage": "Mission Receipt"
+    },
+    {
+      "evidence": "/mission-receipts read-only view",
+      "stage": "Command Center"
+    }
+  ],
+  "status": "completed",
+  "todo_id": "public-spine-demo-loop-001",
+  "user_goal": "Check Aurion's current alpha readiness and produce a governed mission receipt with evidence, warnings, and next steps.",
+  "validation": {
+    "required_commands": [
+      "python scripts/demo/run_public_spine_demo.py",
+      "python -m pytest tests/test_public_spine_demo_runner_001.py --tb=short -q"
+    ],
+    "script_self_validation": "generated artifacts and canonical receipt"
+  },
+  "what_this_demo_does_not_prove": [
+    "It does not prove live autonomous mission execution.",
+    "It does not prove worker spawning, WatcherLoop, AgentFactory, spending, cloud escalation, or production readiness.",
+    "It does not make public_alpha_ready true; install walkthrough and screenshots remain required."
+  ],
+  "what_this_demo_proves": [
+    "Aurion can show one deterministic governed proof loop using verified local islands.",
+    "The loop includes plan, microsteps, PermissionGraph checks, AuditLedger refs, Black Box refs when available, and a canonical Mission Receipt.",
+    "The generated receipt is visible through the existing Mission Receipts loader and Command Center surface."
+  ],
+  "how_to_rerun_note": "Public-export rerun commands (offline, self-contained). The original private run used scripts/demo/public_spine_demo_loop_001.py, which is not part of this public package; the evidence above is shipped fixture-backed."
+}

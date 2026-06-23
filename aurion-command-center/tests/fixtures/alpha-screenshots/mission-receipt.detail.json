@@ -1,0 +1,646 @@
+{
+  "ok": true,
+  "receipt": {
+    "receipt_id": "rcpt-demo-PUBLIC-SPINE-DEMO-LOOP-001",
+    "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+    "title": "Public Spine Demo Loop 001",
+    "status": "completed",
+    "receipt_source": "governed_mission",
+    "primary_receipt": true,
+    "mission_id_present": true,
+    "mission_type": "unspecified_governed_mission",
+    "source": "mission_receipt_foundation",
+    "governed_mission": true,
+    "source_conversation_id": "",
+    "working_memory_session_id": "chat:public-spine-demo-loop-001",
+    "status_reason": "risk_level=low",
+    "blocked_reason": "",
+    "failure_reason": "",
+    "partial_reason": "",
+    "review_reason": "",
+    "proposed_reason": "",
+    "user_goal_summary": "Check Aurion's current alpha readiness and produce a governed mission receipt with evidence, warnings, and next steps.",
+    "what_aurion_understood": "Run a deterministic local repo health check for Aurion's public spine: read alpha-readiness artifacts, exercise a PermissionGraph allow/deny boundary, record demo-scoped audit and decision evidence, and produce a canonical mission_receipt_…",
+    "plan_summary": "Interpret the public-spine demo goal.; Build an advisory Mission Harness Plan and Mission Loop Plan.; Run PermissionGraph checks for local read, external network, and TODO write.; Read alpha readiness artifacts locally.; Record demo-scoped…",
+    "microsteps_summary": [
+      "Interpret the public-spine demo goal.",
+      "Build an advisory Mission Harness Plan and Mission Loop Plan.",
+      "Run PermissionGraph checks for local read, external network, and TODO write.",
+      "Read alpha readiness artifacts locally.",
+      "Record demo-scoped AuditLedger entries.",
+      "Write or honestly report Black Box decision trace availability.",
+      "Generate a canonical Mission Receipt visible in Command Center.",
+      "Propose next steps only; do not mutate TODO, approvals, workers, or live autonomy."
+    ],
+    "tools_models_used": [
+      "MissionHarnessPlan advisory planner",
+      "MissionLoopPlan advisory planner",
+      "PermissionGraph.check_fs",
+      "PermissionGraph.check_net",
+      "AuditLedger.append (demo-scoped JSONL)",
+      "BlackBoxDecisionTrace writer (demo-scoped, when available)",
+      "MissionReceiptBuilder",
+      "local file read (no model call)",
+      "local model routing not called"
+    ],
+    "permission_summary": "fs.read docs/alpha/ALPHA_STATUS.md -> allowed (allowed); net.request https://example.com -> denied (net_denied_no_allowlist); fs.write TODO.md -> denied (fs_write_denied)",
+    "allowed_actions": [
+      "Read docs/alpha/ALPHA_STATUS.md (3065 bytes)",
+      "Read docs/alpha/KNOWN_ISSUES.md (1780 bytes)",
+      "Read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md (12000 bytes)",
+      "Built advisory harness and loop plans.",
+      "Recorded demo-scoped AuditLedger events.",
+      "Generated canonical mission_receipt_v1 artifact."
+    ],
+    "blocked_actions": [
+      "External network request denied by PermissionGraph (not attempted).",
+      "TODO.md write denied by PermissionGraph (proposed-only; not attempted).",
+      "Live autonomy controls intentionally not invoked."
+    ],
+    "approvals_requested": [],
+    "approvals_granted": [],
+    "approvals_denied": [],
+    "sandbox_eval_alignment_summary": "local_demo_completed; permission_boundary_checked; no live autonomy, no cloud, no spending",
+    "completed_actions": [
+      "Read docs/alpha/ALPHA_STATUS.md (3065 bytes)",
+      "Read docs/alpha/KNOWN_ISSUES.md (1780 bytes)",
+      "Read artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md (12000 bytes)",
+      "Built advisory harness and loop plans.",
+      "Recorded demo-scoped AuditLedger events.",
+      "Generated canonical mission_receipt_v1 artifact."
+    ],
+    "warnings": [
+      "This demo does not prove production readiness.",
+      "This demo does not make public_alpha_ready true by itself.",
+      "Live autonomy controls are intentionally outside this proof loop.",
+      "Install walkthrough and screenshots remain separate public-alpha gates."
+    ],
+    "safety_notes": [],
+    "evidence_links": [
+      "audit_public_spine_demo_001_20260620_043841_mission_planned",
+      "audit_public_spine_demo_001_20260620_043841_permission_1",
+      "audit_public_spine_demo_001_20260620_043841_permission_2",
+      "audit_public_spine_demo_001_20260620_043841_permission_3",
+      "audit_public_spine_demo_001_20260620_043841_local_read",
+      "audit_public_spine_demo_001_20260620_043841_receipt_generated"
+    ],
+    "trace_links": [
+      "bb_public_spine_demo_001_20260620_043841_permission_boundary"
+    ],
+    "memory_updates": [],
+    "schema_version": "mission_receipt_v1",
+    "evidence": [
+      {
+        "kind": "file",
+        "ref": "docs/alpha/ALPHA_STATUS.md",
+        "redaction_applied": true,
+        "title": "Generated alpha status"
+      },
+      {
+        "kind": "file",
+        "ref": "docs/alpha/KNOWN_ISSUES.md",
+        "redaction_applied": true,
+        "title": "Generated alpha known issues"
+      },
+      {
+        "kind": "file",
+        "ref": "artifacts/architecture_review/ARCHITECTURE_REVIEW_COMPLETION_AUDIT_001.md",
+        "redaction_applied": true,
+        "title": "Architecture completion audit"
+      },
+      {
+        "kind": "report",
+        "ref": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
+        "redaction_applied": true,
+        "title": "Public spine demo artifact"
+      }
+    ],
+    "changes": {
+      "files_changed": [],
+      "data_changed": [],
+      "redaction_applied": true,
+      "none_reason": "No files or data were changed."
+    },
+    "recommends_next": [
+      {
+        "title": "Capture alpha screenshots after the demo receipt is visible.",
+        "priority": "medium",
+        "follow_up_todo_id": "alpha-screenshot-capture-001"
+      },
+      {
+        "title": "Write a clean install/run walkthrough for public alpha.",
+        "priority": "medium",
+        "follow_up_todo_id": "alpha-install-walkthrough-001"
+      },
+      {
+        "title": "Keep live autonomy controls unavailable until the route/conductor contract is repaired.",
+        "priority": "high",
+        "follow_up_todo_id": "autonomy-route-conductor-contract-audit-001"
+      }
+    ],
+    "receipt_integrity": {
+      "derived_from_audit": false,
+      "audit_event_ids": [
+        "audit_public_spine_demo_001_20260620_043841_mission_planned",
+        "audit_public_spine_demo_001_20260620_043841_permission_1",
+        "audit_public_spine_demo_001_20260620_043841_permission_2",
+        "audit_public_spine_demo_001_20260620_043841_permission_3",
+        "audit_public_spine_demo_001_20260620_043841_local_read",
+        "audit_public_spine_demo_001_20260620_043841_receipt_generated"
+      ],
+      "blackbox_trace_ids": [
+        "bb_public_spine_demo_001_20260620_043841_permission_boundary"
+      ],
+      "missing_data": [
+        "No live autonomy execution result collected; this demo intentionally uses verified read-only/proposed-only paths.",
+        "External network data not collected; PermissionGraph denied network access."
+      ],
+      "generated_at": "2026-06-20T13:13:23.884578+00:00"
+    },
+    "missing_data": [
+      "No live autonomy execution result collected; this demo intentionally uses verified read-only/proposed-only paths.",
+      "External network data not collected; PermissionGraph denied network access.",
+      "source not wired: approval_events"
+    ],
+    "risk_level": "low",
+    "memory_candidates": [
+      {
+        "kind": "decision",
+        "summary": "Public spine demo loop exists and remains read-only/proposed-only.",
+        "source_ref": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.md",
+        "confidence": "high"
+      }
+    ],
+    "memory_writeback_status": "not_attempted",
+    "source_completeness": {
+      "wired_sources": [
+        "mission_metadata",
+        "microsteps",
+        "permission_checks",
+        "sandbox_eval",
+        "actions",
+        "audit_refs",
+        "blackbox_refs",
+        "working_memory_refs",
+        "memory_candidates",
+        "harness_plan"
+      ],
+      "missing_sources": [
+        "approval_events"
+      ],
+      "wired_count": 10,
+      "total_sources": 11,
+      "audit_refs": {
+        "status": "wired",
+        "count": 6,
+        "scope": "mission_id=demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "notes": []
+      },
+      "blackbox_refs": {
+        "status": "wired",
+        "count": 1,
+        "scope": "mission_id=demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "notes": []
+      },
+      "harness_plan": {
+        "status": "wired",
+        "count": 1,
+        "scope": "mission_id=demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "notes": [
+          "Advisory plan. Describes the intended mission boundary; does not enforce permissions by itself."
+        ]
+      },
+      "foundation_version": "v1",
+      "note": "V1 foundation: some subsystems may not be wired yet; missing_sources are honest gaps, not failures.",
+      "generated_at": "2026-06-20T04:38:41.771473+00:00"
+    },
+    "audit_refs": [
+      {
+        "audit_event_id": "audit_public_spine_demo_001_20260620_043841_mission_planned",
+        "event_type": "mission.plan.created",
+        "created_at": "",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "actor": "",
+        "action": "mission.plan.created",
+        "outcome": "",
+        "risk_level": "low",
+        "redacted_summary": "",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_043841_mission_planned",
+        "redaction_applied": true
+      },
+      {
+        "audit_event_id": "audit_public_spine_demo_001_20260620_043841_permission_1",
+        "event_type": "permission.fs.read",
+        "created_at": "",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "actor": "",
+        "action": "permission.fs.read",
+        "outcome": "",
+        "risk_level": "low",
+        "redacted_summary": "",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_043841_permission_1",
+        "redaction_applied": true
+      },
+      {
+        "audit_event_id": "audit_public_spine_demo_001_20260620_043841_permission_2",
+        "event_type": "permission.net.request",
+        "created_at": "",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "actor": "",
+        "action": "permission.net.request",
+        "outcome": "",
+        "risk_level": "low",
+        "redacted_summary": "",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_043841_permission_2",
+        "redaction_applied": true
+      },
+      {
+        "audit_event_id": "audit_public_spine_demo_001_20260620_043841_permission_3",
+        "event_type": "permission.fs.write",
+        "created_at": "",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "actor": "",
+        "action": "permission.fs.write",
+        "outcome": "",
+        "risk_level": "low",
+        "redacted_summary": "",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_043841_permission_3",
+        "redaction_applied": true
+      },
+      {
+        "audit_event_id": "audit_public_spine_demo_001_20260620_043841_local_read",
+        "event_type": "artifact.local_read.completed",
+        "created_at": "",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "actor": "",
+        "action": "artifact.local_read.completed",
+        "outcome": "",
+        "risk_level": "low",
+        "redacted_summary": "",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_043841_local_read",
+        "redaction_applied": true
+      },
+      {
+        "audit_event_id": "audit_public_spine_demo_001_20260620_043841_receipt_generated",
+        "event_type": "mission_receipt.generated",
+        "created_at": "",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "actor": "",
+        "action": "mission_receipt.generated",
+        "outcome": "",
+        "risk_level": "low",
+        "redacted_summary": "",
+        "source_pointer": "audit:audit_public_spine_demo_001_20260620_043841_receipt_generated",
+        "redaction_applied": true
+      }
+    ],
+    "blackbox_refs": [
+      {
+        "trace_id": "bb_public_spine_demo_001_20260620_043841_permission_boundary",
+        "source_pointer": "blackbox:bb_public_spine_demo_001_20260620_043841_permission_boundary",
+        "mission_id": "demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "conversation_id": "",
+        "created_at": "2026-06-20T04:38:41.761311+00:00",
+        "decision_type": "policy",
+        "component": "scripts/demo/public_spine_demo_loop_001.py",
+        "model_role": "not_called_deterministic_script",
+        "risk_level": "",
+        "outcome": "read alpha status locally; deny external network and TODO write",
+        "redacted_summary": "risk=Low-risk deterministic demo; external network and writes denied.; policy=Use verified read-only islands; do not invoke live autonomy controls.; reasons=LOCAL_ONLY, PERMISSION_BOUNDARY_HIT, NO_LIVE_AUTONOMY",
+        "evidence_refs": [
+          "docs/alpha/ALPHA_STATUS.md",
+          "docs/alpha/KNOWN_ISSUES.md"
+        ],
+        "audit_refs": [
+          "audit_public_spine_demo_001_20260620_043841_mission_planned",
+          "audit_public_spine_demo_001_20260620_043841_permission_1",
+          "audit_public_spine_demo_001_20260620_043841_permission_2",
+          "audit_public_spine_demo_001_20260620_043841_permission_3",
+          "audit_public_spine_demo_001_20260620_043841_local_read"
+        ],
+        "truncated": false,
+        "warnings": [],
+        "redaction_applied": true
+      }
+    ],
+    "harness_plan": {
+      "redaction_applied": true,
+      "plan_id": "mhp_da7ba18397",
+      "job_type": "reviewer",
+      "risk_level": "low",
+      "permission_scope": "read_only",
+      "external_access_policy": "local_only",
+      "model_role": "reviewer",
+      "minimality_rationale": "Reviewer work is read-only over local context; it needs no external access, spending, or write permissions.",
+      "allowed_tools": [
+        "local_read",
+        "source_extraction"
+      ],
+      "blocked_tools": [
+        "spending",
+        "account_actions",
+        "account_login",
+        "destructive_filesystem",
+        "email_sending",
+        "shell_write_actions",
+        "purchase",
+        "form_submit"
+      ],
+      "allowed_tool_categories": [],
+      "blocked_tool_categories": [],
+      "allowed_memory_sources": [
+        "local_rag",
+        "source_of_truth_read"
+      ],
+      "blocked_memory_sources": [
+        "user_private_credentials"
+      ],
+      "approval_checkpoints": [],
+      "proof_requirements": [
+        "file_refs",
+        "audit_refs",
+        "mission_receipt"
+      ],
+      "sandbox_requirements": [],
+      "warnings": [],
+      "missing_information": [],
+      "advisory_only": true,
+      "warning_count": 0
+    },
+    "receipt_kind": "demo",
+    "loop_id": "",
+    "cycle_index": null,
+    "dry_run": true,
+    "execution_mode": "dry_run",
+    "parent_mission_id": "",
+    "cost_decision": "allowed",
+    "cost_estimate": {
+      "estimated_runtime_minutes": 10,
+      "estimated_cycles": 1,
+      "estimated_local_model_calls": 40,
+      "estimated_cloud_calls": 0,
+      "estimated_tokens_low": 16000,
+      "estimated_tokens_high": 60000,
+      "estimated_cost_usd_low": 0.0,
+      "estimated_cost_usd_high": 0.0,
+      "confidence": "high",
+      "assumptions": [
+        "local model calls cost $0 (self-hosted); ~400-1500 tokens/call",
+        "cloud calls use descriptive bounds $0.001-$0.03/1k tokens; ~800-4000 tokens/call",
+        "estimates are offline planning bounds, not live billing"
+      ]
+    },
+    "cost_approvals_required": [],
+    "cost_block_reasons": [],
+    "cost_warnings": [],
+    "budget_policy_summary": {
+      "budget": {
+        "max_cycles": 1,
+        "max_runtime_minutes": 10,
+        "max_local_model_calls": 40,
+        "max_cloud_calls": 0,
+        "max_estimated_cost_usd": 0.0,
+        "cloud_escalation_requires_approval": true,
+        "spending_requires_approval": true,
+        "stop_on_budget_exceeded": true
+      },
+      "policy": {
+        "default_max_cycles": 3,
+        "default_max_runtime_minutes": 15,
+        "max_cloud_calls_without_approval": 0,
+        "max_estimated_cost_usd_without_approval": 0.0,
+        "require_approval_for_cloud": true,
+        "require_approval_for_spending": true,
+        "require_approval_for_long_running_loop": true,
+        "hard_stop_on_budget_exceeded": true,
+        "warning_thresholds": {
+          "long_running_minutes": 20.0,
+          "cost_warning_usd": 0.0,
+          "high_cycle_count": 5.0
+        }
+      },
+      "doctrine": [
+        "No loop without a budget.",
+        "No expensive loop without approval.",
+        "No cloud escalation without approval.",
+        "No spending without approval."
+      ]
+    },
+    "budget_stop_conditions": [
+      "objective_reached",
+      "max_cycles_reached",
+      "max_runtime_reached",
+      "budget_exceeded"
+    ],
+    "created_at": "2026-06-20T04:38:41.771795+00:00",
+    "redaction_applied": true,
+    "source_links": [
+      {
+        "label": "Receipt",
+        "kind": "receipt",
+        "ref_id": "rcpt-demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "target": "/mission-receipts?receipt_id=rcpt-demo-PUBLIC-SPINE-DEMO-LOOP-001",
+        "available": true,
+        "safe_summary": "Mission Receipt reference.",
+        "reason_unavailable": "",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Audit Trail",
+        "kind": "audit_trail",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_mission_planned",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Audit ref was not found in the bounded AuditLedger query.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Audit Trail",
+        "kind": "audit_trail",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_permission_1",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Audit ref was not found in the bounded AuditLedger query.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Audit Trail",
+        "kind": "audit_trail",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_permission_2",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Audit ref was not found in the bounded AuditLedger query.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Audit Trail",
+        "kind": "audit_trail",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_permission_3",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Audit ref was not found in the bounded AuditLedger query.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Audit Trail",
+        "kind": "audit_trail",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_local_read",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Audit ref was not found in the bounded AuditLedger query.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Audit Trail",
+        "kind": "audit_trail",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_receipt_generated",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Audit ref was not found in the bounded AuditLedger query.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Decision Trace",
+        "kind": "decision_trace",
+        "ref_id": "bb_public_spine_demo_001_20260620_043841_permission_boundary",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Decision Trace ref was not found in the bounded index scan.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_mission_planned",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_permission_1",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_permission_2",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_permission_3",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_local_read",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "audit_public_spine_demo_001_20260620_043841_receipt_generated",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "invalid",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "invalid",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "invalid",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      },
+      {
+        "label": "Artifact",
+        "kind": "artifact",
+        "ref_id": "invalid",
+        "target": "",
+        "available": false,
+        "safe_summary": "",
+        "reason_unavailable": "Artifact ref is outside the safe artifact allowlist.",
+        "technical": true,
+        "redaction_applied": true
+      }
+    ]
+  },
+  "warnings": [],
+  "note": "Mission Receipts are read-only, human-readable summaries generated from AuditLedger events. They never expose raw prompts, secrets, or hidden reasoning, and never fake success — missing data is shown as a warning. Technical detail lives in AuditLedger and Black Box traces."
+}
