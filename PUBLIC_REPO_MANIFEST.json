@@ -55,8 +55,8 @@
     },
     {
       "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.json",
-      "sha256_16": "c796a3a2731b8f21",
-      "bytes": 4469
+      "sha256_16": "d14a34b994ebf643",
+      "bytes": 4535
     },
     {
       "path": "artifacts/alpha/DEMO_PUBLIC_ALPHA_PUBLISH_PACK_001.md",
@@ -65,8 +65,8 @@
     },
     {
       "path": "artifacts/alpha/alpha_status.json",
-      "sha256_16": "1d3a4617e2915183",
-      "bytes": 452
+      "sha256_16": "a0ec4efa79ec9541",
+      "bytes": 518
     },
     {
       "path": "artifacts/demo/PUBLIC_SPINE_DEMO_LOOP_001.audit.jsonl",
@@ -200,8 +200,8 @@
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_GITHUB.md",
-      "sha256_16": "c003a998848ca9ce",
-      "bytes": 5767
+      "sha256_16": "cff09e842097a21c",
+      "bytes": 5828
     },
     {
       "path": "docs/alpha/ANNOUNCEMENT_SOCIAL.md",
@@ -215,8 +215,8 @@
     },
     {
       "path": "docs/alpha/DEMO_STATUS.md",
-      "sha256_16": "9a8bb80f8399b1fe",
-      "bytes": 4566
+      "sha256_16": "bdb575e876e4f5bd",
+      "bytes": 4746
     },
     {
       "path": "docs/alpha/FAQ_DEMO_PUBLIC_ALPHA.md",
@@ -305,8 +305,8 @@
     },
     {
       "path": "tests/test_demo_public_alpha_publish_pack_001.py",
-      "sha256_16": "8ff0e25c4e53f4da",
-      "bytes": 11272
+      "sha256_16": "f1b72199580e3632",
+      "bytes": 11659
     },
     {
       "path": "tests/test_public_spine_demo_runner_001.py",

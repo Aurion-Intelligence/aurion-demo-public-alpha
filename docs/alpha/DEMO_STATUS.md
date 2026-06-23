@@ -8,7 +8,9 @@
 ```text
 demo_public_alpha_ready: true     # this bounded demo package is ready
 public_alpha_ready:      false    # full public alpha is NOT ready
-publication_executed:    false
+repository_public:       true     # this demo repository is public
+announcement_published:  false    # no public announcement has been made
+github_release_created:  false    # no GitHub release has been created
 license:                 AGPL-3.0-only
 ```
 

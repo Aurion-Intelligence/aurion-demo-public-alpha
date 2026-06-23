@@ -123,4 +123,5 @@ gates) — not this bounded package. Removed: `docs/alpha/ALPHA_STATUS.md`, `doc
 `aurion/alpha/status.py` (the full-project status generator). Replaced by a concise, static
 `docs/alpha/DEMO_STATUS.md` that describes only the exported Demo Public Alpha package. `alpha_status.json`
 now carries only the export-level flags. Honest split preserved: `demo_public_alpha_ready: true`,
-`public_alpha_ready: false`, `publication_executed: false`.
+`public_alpha_ready: false`, `repository_public: true`, `announcement_published: false`,
+`github_release_created: false`.

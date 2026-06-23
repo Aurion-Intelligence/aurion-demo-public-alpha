@@ -2,7 +2,9 @@
   "scope": "exported Demo Public Alpha package only (NOT the full Aurion project)",
   "demo_public_alpha_ready": true,
   "public_alpha_ready": false,
-  "publication_executed": false,
   "license": "AGPL-3.0-only",
-  "note": "This file intentionally contains only the export-level flags. The full-project readiness matrix, gates, blockers, and TODO references are private and are not published in this demo repository. See docs/alpha/DEMO_STATUS.md."
+  "note": "This file intentionally contains only the export-level flags. The full-project readiness matrix, gates, blockers, and TODO references are private and are not published in this demo repository. See docs/alpha/DEMO_STATUS.md.",
+  "repository_public": true,
+  "announcement_published": false,
+  "github_release_created": false
 }

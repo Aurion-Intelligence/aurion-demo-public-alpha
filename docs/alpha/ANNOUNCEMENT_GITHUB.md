@@ -96,7 +96,9 @@ See [Known Limitations (Public)](KNOWN_LIMITATIONS_PUBLIC.md) for the full list.
 ```text
 demo_public_alpha_ready: true
 public_alpha_ready:      false
-publication_executed:    false
+repository_public:       true
+announcement_published:  false
+github_release_created:  false
 ```
 
 The export-scoped status lives in [`DEMO_STATUS.md`](DEMO_STATUS.md).

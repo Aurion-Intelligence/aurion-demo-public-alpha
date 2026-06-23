@@ -8,7 +8,6 @@
   "public_alpha_ready": false,
   "overall_status": "demo_public_alpha_ready (bounded package); full public alpha not ready",
   "tracked_readiness_verdict": "ready_with_minor_caveats",
-  "publication_executed": false,
   "documents": [
     "docs/alpha/PUBLISH_PACK.md",
     "docs/alpha/DEMO_SCRIPT.md",
@@ -86,5 +85,8 @@
   ],
   "git_tracking_note": "New brief-named publish docs + updated test are untracked/modified; README.md is tracked. Explicit-pathspec staging command is in the markdown artifact and handoff. NOT executed (no add -A, no commit, no push, no release).",
   "recommendation": "publication_materials_ready_for_operator_review",
-  "recommended_next_step": "operator_review_then_publish_or_record_demo"
+  "recommended_next_step": "operator_review_then_publish_or_record_demo",
+  "repository_public": true,
+  "announcement_published": false,
+  "github_release_created": false
 }

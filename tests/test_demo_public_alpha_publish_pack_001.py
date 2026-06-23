@@ -235,11 +235,15 @@ def test_docs_do_not_claim_public_alpha_ready_true():
         "Publish pack must state public_alpha_ready is false"
 
 
-# --- Machine artifact: publication_executed must be false --------------------
-def test_artifact_publication_not_executed():
+# --- Machine artifact: honest publication-state flags ------------------------
+def test_artifact_publication_state_is_honest():
     data = json.loads(_text(ARTIFACT_JSON))
-    assert data.get("publication_executed") is False, \
-        "publish-pack artifact must keep publication_executed = false"
+    # The legacy `publication_executed` flag has been replaced with explicit, honest publication state.
+    assert "publication_executed" not in data, \
+        "publication_executed must be replaced by explicit repository_public / announcement_published / github_release_created"
+    assert data.get("announcement_published") is False, "no announcement published by this work"
+    assert data.get("github_release_created") is False, "no GitHub release created by this work"
+    # Readiness split is unchanged.
     assert data.get("public_alpha_ready") is False
     assert data.get("demo_public_alpha_ready") is True
 
